@@ -1,0 +1,72 @@
+[
+  {
+    "id": "flecha-fantasma-2-pardal",
+    "competitionId": "flecha-fantasma",
+    "winnerId": "pardal",
+    "edition": 2,
+    "date": "2026-05-16",
+    "weapon": "Arco Alexander Longbow",
+    "reserve": "Revontuli Coast",
+    "details": "Um disparo silencioso decidiu a disputa nos minutos finais da rodada."
+  },
+  {
+    "id": "olho-de-aguia-1-pardal",
+    "competitionId": "olho-de-aguia",
+    "winnerId": "pardal",
+    "edition": 1,
+    "date": "2026-02-21",
+    "weapon": "Rifle .300 Canning Magnum",
+    "reserve": "Yukon Valley",
+    "details": "Abate limpo a 312 metros, mantendo todos os bônus de colheita."
+  },
+  {
+    "id": "chumbo-selvagem-2-bode",
+    "competitionId": "chumbo-selvagem",
+    "winnerId": "bode",
+    "edition": 2,
+    "date": "2026-04-11",
+    "weapon": "Espingarda Cacciatore 12G",
+    "reserve": "Mississippi Acres",
+    "details": "Vitória conquistada em terreno fechado após uma aproximação arriscada."
+  },
+  {
+    "id": "besta-impossivel-1-bode",
+    "competitionId": "besta-impossivel",
+    "winnerId": "bode",
+    "edition": 1,
+    "date": "2026-01-24",
+    "weapon": "Besta Crosspoint CB-165",
+    "reserve": "Cuatro Colinas",
+    "details": "O primeiro título da modalidade veio com um disparo preciso a 96 metros."
+  },
+  {
+    "id": "pistoleiro-do-oeste-3-black-apple",
+    "competitionId": "pistoleiro-do-oeste",
+    "winnerId": "black-apple",
+    "edition": 3,
+    "date": "2026-06-06",
+    "weapon": "Revólver Rhino .454",
+    "reserve": "Silver Ridge Peaks",
+    "details": "A maior pontuação da noite veio sem mira óptica e com apenas um disparo."
+  },
+  {
+    "id": "flecha-fantasma-1-black-apple",
+    "competitionId": "flecha-fantasma",
+    "winnerId": "black-apple",
+    "edition": 1,
+    "date": "2025-12-13",
+    "weapon": "Arco Houyi Recurve",
+    "reserve": "Emerald Coast",
+    "details": "Campeão da edição inaugural com uma aproximação impecável contra o vento."
+  },
+  {
+    "id": "chumbo-selvagem-1-black-apple",
+    "competitionId": "chumbo-selvagem",
+    "winnerId": "black-apple",
+    "edition": 1,
+    "date": "2025-11-22",
+    "weapon": "Espingarda Nordin 20SA",
+    "reserve": "Hirschfelden",
+    "details": "Uma caçada paciente nas margens da floresta garantiu o primeiro troféu."
+  }
+]
