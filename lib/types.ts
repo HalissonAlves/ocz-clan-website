@@ -11,7 +11,7 @@ export type Competition = {
   name: string;
   objective: string;
   allowedWeapons: string[];
-  specialConditions: string | null;
+  specialConditions: string[];
   trophyImage: string;
 };
 

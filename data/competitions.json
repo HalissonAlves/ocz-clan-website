@@ -4,7 +4,10 @@
     "name": "Flecha Fantasma",
     "objective": "Abater o animal a uma distância mínima de 60 metros",
     "allowedWeapons": ["Arco Primitivo"],
-    "specialConditions": ["O animal precisa passar na verificação de abate", "Proibído o uso de miras ópticas"],
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate",
+      "Proibído o uso de miras ópticas"
+    ],
     "trophyImage": "/assets/flecha_fantasma-removebg-preview.png"
   },
   {
@@ -12,7 +15,10 @@
     "name": "Besta Impossível",
     "objective": "Abater o animal a uma distância mínima de 125 metros",
     "allowedWeapons": ["Bestas"],
-    "specialConditions": ["O animal precisa passar na verificação de abate.", "Proibído o uso de miras ópticas"],
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate.",
+      "Proibído o uso de miras ópticas"
+    ],
     "trophyImage": "/assets/besta_impossível-removebg-preview.png"
   },
   {
@@ -20,7 +26,11 @@
     "name": "Chumbo Selvagem",
     "objective": "Abater o animal a uma distância mínima de 50 metros",
     "allowedWeapons": ["Espingardas"],
-    "specialConditions": ["O animal precisa passar na verificação de abate.", "Proibído o uso de miras ópticas", "Munição de chumbo é obrigatória (buckshot)"],
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate.",
+      "Proibído o uso de miras ópticas",
+      "Munição de chumbo é obrigatória (buckshot)"
+    ],
     "trophyImage": "/assets/chumbo_selvagem-removebg-preview.png"
   },
   {
@@ -28,7 +38,11 @@
     "name": "Olho de Águia",
     "objective": "Abater o animal a uma distância mínima de 100 metros",
     "allowedWeapons": ["Espingardas"],
-    "specialConditions": ["O animal precisa passar na verificação de abate.", "Proibído o uso de miras ópticas", "Munição slug é obrigatória para espingardas"],
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate.",
+      "Proibído o uso de miras ópticas",
+      "Munição slug é obrigatória para espingardas"
+    ],
     "trophyImage": "/assets/olho_de_aguia-removebg-preview.png"
   },
   {
@@ -36,7 +50,10 @@
     "name": "Pistoleiro do Oeste",
     "objective": "Abater o animal a uma distância mínima de 120 metros",
     "allowedWeapons": ["Revólveres"],
-    "specialConditions": ["O animal precisa passar na verificação de abate.", "Proibído o uso de miras ópticas"],
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate.",
+      "Proibído o uso de miras ópticas"
+    ],
     "trophyImage": "/assets/pistoleiro_do_oeste-removebg-preview.png"
   }
 ]

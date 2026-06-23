@@ -36,6 +36,24 @@ function validateData() {
     competitions.map((competition) => competition.id),
   );
 
+  for (const competition of competitions) {
+    if (competition.allowedWeapons.length === 0) {
+      throw new Error(
+        `Competição "${competition.id}" precisa informar ao menos uma arma permitida.`,
+      );
+    }
+
+    if (
+      competition.specialConditions.some(
+        (condition) => condition.trim().length === 0,
+      )
+    ) {
+      throw new Error(
+        `Competição "${competition.id}" possui uma condição especial vazia.`,
+      );
+    }
+  }
+
   for (const trophy of trophies) {
     if (!playerIds.has(trophy.winnerId)) {
       throw new Error(

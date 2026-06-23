@@ -82,10 +82,26 @@ export default function CompetitionsPage() {
                         <p className="text-[0.58rem] font-bold uppercase tracking-[0.18em] text-stone-600">
                           Condições especiais
                         </p>
-                        <p className="mt-1 text-sm leading-6 text-stone-300">
-                          {competition.specialConditions ??
-                            "Sem condições especiais."}
-                        </p>
+                        {competition.specialConditions.length > 0 ? (
+                          <ul className="mt-2 space-y-1.5 text-sm leading-6 text-stone-300">
+                            {competition.specialConditions.map((condition) => (
+                              <li
+                                key={condition}
+                                className="flex items-start gap-2"
+                              >
+                                <span
+                                  className="mt-[0.65rem] size-1 shrink-0 rounded-full bg-amber-400"
+                                  aria-hidden="true"
+                                />
+                                <span>{condition}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="mt-1 text-sm leading-6 text-stone-300">
+                            Sem condições especiais.
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>
