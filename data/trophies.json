@@ -1,72 +1,42 @@
 [
   {
-    "id": "flecha-fantasma-2-pardal",
-    "competitionId": "flecha-fantasma",
-    "winnerId": "pardal",
-    "edition": 2,
-    "date": "2026-05-16",
-    "weapon": "Arco Alexander Longbow",
-    "reserve": "Revontuli Coast",
-    "details": "Um disparo silencioso decidiu a disputa nos minutos finais da rodada."
-  },
-  {
-    "id": "olho-de-aguia-1-pardal",
-    "competitionId": "olho-de-aguia",
-    "winnerId": "pardal",
-    "edition": 1,
-    "date": "2026-02-21",
-    "weapon": "Rifle .300 Canning Magnum",
-    "reserve": "Yukon Valley",
-    "details": "Abate limpo a 312 metros, mantendo todos os bônus de colheita."
-  },
-  {
-    "id": "chumbo-selvagem-2-bode",
-    "competitionId": "chumbo-selvagem",
-    "winnerId": "bode",
-    "edition": 2,
-    "date": "2026-04-11",
-    "weapon": "Espingarda Cacciatore 12G",
-    "reserve": "Mississippi Acres",
-    "details": "Vitória conquistada em terreno fechado após uma aproximação arriscada."
-  },
-  {
-    "id": "besta-impossivel-1-bode",
-    "competitionId": "besta-impossivel",
-    "winnerId": "bode",
-    "edition": 1,
-    "date": "2026-01-24",
-    "weapon": "Besta Crosspoint CB-165",
-    "reserve": "Cuatro Colinas",
-    "details": "O primeiro título da modalidade veio com um disparo preciso a 96 metros."
-  },
-  {
-    "id": "pistoleiro-do-oeste-3-black-apple",
-    "competitionId": "pistoleiro-do-oeste",
-    "winnerId": "black-apple",
-    "edition": 3,
-    "date": "2026-06-06",
-    "weapon": "Revólver Rhino .454",
-    "reserve": "Silver Ridge Peaks",
-    "details": "A maior pontuação da noite veio sem mira óptica e com apenas um disparo."
-  },
-  {
     "id": "flecha-fantasma-1-black-apple",
     "competitionId": "flecha-fantasma",
     "winnerId": "black-apple",
     "edition": 1,
-    "date": "2025-12-13",
-    "weapon": "Arco Houyi Recurve",
-    "reserve": "Emerald Coast",
-    "details": "Campeão da edição inaugural com uma aproximação impecável contra o vento."
+    "date": "2026-06-23",
+    "weapon": "Arco Longo Alexander Rústico",
+    "reserve": "Sundarpatan",
+    "details": "Quase no fim da competição, o arqueiro Black Apple conseguiu abater um Carneiro Azul a 68,92 metros, garantindo a vitória. A flecha perfurou o pulmão e vértebras do animal, mantendo todos os bônus de colheita."
   },
   {
-    "id": "chumbo-selvagem-1-black-apple",
-    "competitionId": "chumbo-selvagem",
-    "winnerId": "black-apple",
+    "id": "olho-de-aguia-1-bode",
+    "competitionId": "olho-de-aguia",
+    "winnerId": "bode",
     "edition": 1,
-    "date": "2025-11-22",
-    "weapon": "Espingarda Nordin 20SA",
-    "reserve": "Hirschfelden",
-    "details": "Uma caçada paciente nas margens da floresta garantiu o primeiro troféu."
+    "date": "2026-06-23",
+    "weapon": "Strandberg 10 SA Executive",
+    "reserve": "Sundarpatan",
+    "details": "Abateu uma grande fêmea de Iaque Selvagem com a munição Slug a 108,96 metros, garantindo o primeiro troféu da competição. O disparo foi feito com precisão, atingindo o pulmão direito do animal. Como estava sem o cachorro, o caçador teve grandes dificuldades para recuperar o animal, mas conseguiu com sucesso."
+  },
+  {
+    "id": "besta-impossivel-1-pardal",
+    "competitionId": "besta-impossivel",
+    "winnerId": "pardal",
+    "edition": 1,
+    "date": "2026-06-23",
+    "weapon": "Besta Crosspoint CB-165 Supervisora",
+    "reserve": "Sundarpatan",
+    "details": "O primeiro título da modalidade veio com um disparo no peito de um Ganso Bravo em pleno voo a 92,40m de distância."
+  },
+  {
+    "id": "pistoleiro-do-oeste-1-pardal",
+    "competitionId": "pistoleiro-do-oeste",
+    "winnerId": "pardal",
+    "edition": 1,
+    "date": "2026-06-23",
+    "weapon": "Revólver Mangiafico 410 / 45 Colt de Aço Polido",
+    "reserve": "Sundarpatan",
+    "details": "O título inaugural da competição foi conquistado com um disparo certeiro a 115,11 metros no pulmão direito de um Carneiro Azul, garantindo a vitória."
   }
 ]
