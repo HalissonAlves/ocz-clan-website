@@ -56,7 +56,7 @@
     ],
     "trophyImage": "/assets/pistoleiro_do_oeste-removebg-preview.png"
   },
-    {
+  {
     "id": "atirador-de-elite",
     "name": "Atirador de Elite",
     "objective": "Abater o animal a uma distância mínima de 300 metros acertando o coração",
@@ -65,5 +65,25 @@
       "O animal precisa passar na verificação de abate."
     ],
     "trophyImage": "/assets/atirador_de_elite.png"
+  },
+  {
+    "id": "alce-diamantado",
+    "name": "Alce Diamantado",
+    "objective": "Abater um Alce Diamante com qualquer arma ética e passar na verificação de abate",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate."
+    ],
+    "trophyImage": "/assets/alce_diamantado.png"
+  },
+  {
+    "id": "urso-pardo-diamantado",
+    "name": "Urso Pardo Diamantado",
+    "objective": "Abater um Urso Pardo Diamante com qualquer arma ética e passar na verificação de abate",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate."
+    ],
+    "trophyImage": "/assets/urso_diamantado.png"
   }
 ]
