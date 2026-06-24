@@ -55,5 +55,15 @@
       "Proibído o uso de miras ópticas"
     ],
     "trophyImage": "/assets/pistoleiro_do_oeste-removebg-preview.png"
+  },
+    {
+    "id": "atirador-de-elite",
+    "name": "Atirador de Elite",
+    "objective": "Abater o animal a uma distância mínima de 300 metros acertando o coração",
+    "allowedWeapons": ["Rifles de Precisão"],
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate."
+    ],
+    "trophyImage": "/assets/atirador_de_elite.png"
   }
 ]
