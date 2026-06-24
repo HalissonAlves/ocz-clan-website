@@ -2,7 +2,7 @@
   {
     "id": "flecha-fantasma",
     "name": "Flecha Fantasma",
-    "objective": "Abater o animal a uma distância mínima de 60 metros",
+    "objective": "Abater o animal a uma distância mínima de 50 metros",
     "allowedWeapons": ["Arco Primitivo"],
     "specialConditions": [
       "O animal precisa passar na verificação de abate",
@@ -13,7 +13,7 @@
   {
     "id": "besta-impossivel",
     "name": "Besta Impossível",
-    "objective": "Abater o animal a uma distância mínima de 125 metros",
+    "objective": "Abater o animal a uma distância mínima de 70 metros",
     "allowedWeapons": ["Bestas"],
     "specialConditions": [
       "O animal precisa passar na verificação de abate.",
@@ -24,7 +24,7 @@
   {
     "id": "chumbo-selvagem",
     "name": "Chumbo Selvagem",
-    "objective": "Abater o animal a uma distância mínima de 50 metros",
+    "objective": "Abater o animal a uma distância mínima de 40 metros",
     "allowedWeapons": ["Espingardas"],
     "specialConditions": [
       "O animal precisa passar na verificação de abate.",
@@ -48,7 +48,7 @@
   {
     "id": "pistoleiro-do-oeste",
     "name": "Pistoleiro do Oeste",
-    "objective": "Abater o animal a uma distância mínima de 120 metros",
+    "objective": "Abater o animal a uma distância mínima de 100 metros",
     "allowedWeapons": ["Revólveres"],
     "specialConditions": [
       "O animal precisa passar na verificação de abate.",
