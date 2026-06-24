@@ -2,6 +2,7 @@
   {
     "id": "flecha-fantasma",
     "name": "Flecha Fantasma",
+    "category": "standard",
     "objective": "Abater o animal a uma distância mínima de 50 metros",
     "allowedWeapons": ["Arco Primitivo"],
     "specialConditions": [
@@ -13,6 +14,7 @@
   {
     "id": "besta-impossivel",
     "name": "Besta Impossível",
+    "category": "standard",
     "objective": "Abater o animal a uma distância mínima de 70 metros",
     "allowedWeapons": ["Bestas"],
     "specialConditions": [
@@ -24,6 +26,7 @@
   {
     "id": "chumbo-selvagem",
     "name": "Chumbo Selvagem",
+    "category": "standard",
     "objective": "Abater o animal a uma distância mínima de 40 metros",
     "allowedWeapons": ["Espingardas"],
     "specialConditions": [
@@ -36,6 +39,7 @@
   {
     "id": "olho-de-aguia",
     "name": "Olho de Águia",
+    "category": "standard",
     "objective": "Abater o animal a uma distância mínima de 100 metros",
     "allowedWeapons": ["Espingardas"],
     "specialConditions": [
@@ -48,6 +52,7 @@
   {
     "id": "pistoleiro-do-oeste",
     "name": "Pistoleiro do Oeste",
+    "category": "standard",
     "objective": "Abater o animal a uma distância mínima de 100 metros",
     "allowedWeapons": ["Revólveres"],
     "specialConditions": [
@@ -59,31 +64,46 @@
   {
     "id": "atirador-de-elite",
     "name": "Atirador de Elite",
+    "category": "standard",
     "objective": "Abater o animal a uma distância mínima de 300 metros acertando o coração",
     "allowedWeapons": ["Rifles de Precisão"],
-    "specialConditions": [
-      "O animal precisa passar na verificação de abate."
-    ],
+    "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/atirador_de_elite.png"
   },
   {
-    "id": "alce-diamantado",
-    "name": "Alce Diamantado",
+    "id": "monarca-das-galhadas",
+    "name": "Monarca das Galhadas",
+    "category": "diamond",
     "objective": "Abater um Alce Diamante com qualquer arma ética e passar na verificação de abate",
     "allowedWeapons": ["Qualquer arma ética"],
-    "specialConditions": [
-      "O animal precisa passar na verificação de abate."
-    ],
-    "trophyImage": "/assets/alce_diamantado.png"
+    "specialConditions": ["O animal precisa passar na verificação de abate."],
+    "trophyImage": "/assets/monarca_das_galhadas.png"
   },
   {
-    "id": "urso-pardo-diamantado",
-    "name": "Urso Pardo Diamantado",
+    "id": "tita-de-gelo",
+    "name": "Titã de Gelo",
+    "category": "diamond",
     "objective": "Abater um Urso Pardo Diamante com qualquer arma ética e passar na verificação de abate",
     "allowedWeapons": ["Qualquer arma ética"],
-    "specialConditions": [
-      "O animal precisa passar na verificação de abate."
-    ],
-    "trophyImage": "/assets/urso_diamantado.png"
+    "specialConditions": ["O animal precisa passar na verificação de abate."],
+    "trophyImage": "/assets/tita_de_gelo.png"
+  },
+  {
+    "id": "fantasma-branco",
+    "name": "Fantasma Branco",
+    "category": "diamond",
+    "objective": "Abater um Veado de Cauda Branca Diamante com qualquer arma ética e passar na verificação de abate",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": ["O animal precisa passar na verificação de abate."],
+    "trophyImage": "/assets/fantasma_branco.png"
+  },
+  {
+    "id": "sombra-pintada",
+    "name": "Sombra Pintada",
+    "category": "diamond",
+    "objective": "Abater uma Jaguatirica Diamante com qualquer arma ética e passar na verificação de abate",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": ["O animal precisa passar na verificação de abate."],
+    "trophyImage": "/assets/sombra_pintada.png"
   }
 ]

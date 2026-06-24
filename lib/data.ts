@@ -11,7 +11,10 @@ import type {
 } from "@/lib/types";
 
 const players = playersData satisfies Player[];
-const competitions = competitionsData satisfies Competition[];
+const competitions = competitionsData.map((competition) => ({
+  ...competition,
+  category: competition.category as Competition["category"],
+})) satisfies Competition[];
 const trophies = trophiesData satisfies Trophy[];
 
 function assertUniqueIds(items: { id: string }[], label: string) {
@@ -37,6 +40,13 @@ function validateData() {
   );
 
   for (const competition of competitions) {
+    if (
+      competition.category !== "standard" &&
+      competition.category !== "diamond"
+    ) {
+      throw new Error("Categoria de competição inválida.");
+    }
+
     if (competition.allowedWeapons.length === 0) {
       throw new Error(
         `Competição "${competition.id}" precisa informar ao menos uma arma permitida.`,

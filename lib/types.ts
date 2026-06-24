@@ -9,6 +9,7 @@ export type Player = {
 export type Competition = {
   id: string;
   name: string;
+  category: "standard" | "diamond";
   objective: string;
   allowedWeapons: string[];
   specialConditions: string[];
