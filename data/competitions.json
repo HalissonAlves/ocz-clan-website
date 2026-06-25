@@ -132,5 +132,32 @@
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/laminas_do_deserto.png"
+  },
+  {
+    "id": "trovao-da-savana",
+    "name": "Trovão da Savana",
+    "category": "diamond",
+    "objective": "Abater um Gnu de Cauda Preta Diamante com qualquer arma ética e passar na verificação de abate",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": ["O animal precisa passar na verificação de abate."],
+    "trophyImage": "/assets/trovao_da_savana.png"
+  },
+  {
+    "id": "presas-de-guerra",
+    "name": "Presas de Guerra",
+    "category": "diamond",
+    "objective": "Abater um Javali Africano Diamante com qualquer arma ética e passar na verificação de abate",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": ["O animal precisa passar na verificação de abate."],
+    "trophyImage": "/assets/presas_de_guerra.png"
+  },
+  {
+    "id": "espirais-do-destino",
+    "name": "Espirais do Destino",
+    "category": "diamond",
+    "objective": "Abater um Cudo Menor Diamante com qualquer arma ética e passar na verificação de abate",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": ["O animal precisa passar na verificação de abate."],
+    "trophyImage": "/assets/espirais_do_destino.png"
   }
 ]
