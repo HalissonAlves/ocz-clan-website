@@ -195,5 +195,41 @@
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/chama_da_campina.png"
+  },
+  {
+    "id": "a-sombra",
+    "name": "A Sombra",
+    "category": "standard",
+    "objective": "Abater um animal a menos de 25 metros com um arco ou besta e passar na verificação de abate",
+    "allowedWeapons": ["Arco", "Besta"],
+    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na menor distância do abate.", "Se o animal bugar e ficar parado em um local, o abate não será válido."],
+    "trophyImage": "/assets/a_sombra.png"
+  },
+  {
+    "id": "o-destemido",
+    "name": "O Destemido",
+    "category": "standard",
+    "objective": "Abater um predador a menos de 25 metros com uma espingarda e passar na verificação de abate",
+    "allowedWeapons": ["Espingarda"],
+    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na menor distância do abate.", "Alguns predadores não são permitidos, como: Jacaré-Açu e Crocodilo", "Se o animal bugar e ficar parado em um local, o abate não será válido."],
+    "trophyImage": "/assets/o_destemido.png"
+  },
+  {
+    "id": "sangue-de-ouro",
+    "name": "Sangue de Ouro",
+    "category": "standard",
+    "objective": "Abater um animal a pelo menos 100 metros de distância com um rifle sem mira e passar na verificação de abate",
+    "allowedWeapons": ["Rifles de Precisão"],
+    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na maior distância do abate.", "O animal precisa ser Ouro"],
+    "trophyImage": "/assets/sangue_de_ouro.png"
+  },
+  {
+    "id": "destruidor-de-cranios",
+    "name": "Destruidor de Crânios",
+    "category": "standard",
+    "objective": "Abater um animal a pelo menos 50 metros de distância com um rifle sem mira e passar na verificação de abate",
+    "allowedWeapons": ["Rifles de Precisão"],
+    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na maior distância do abate.", "O tiro precisa acertar o cérebro do animal"],
+    "trophyImage": "/assets/destruidor_de_cranios.png"
   }
 ]
