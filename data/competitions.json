@@ -159,5 +159,41 @@
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/espirais_do_destino.png"
+  },
+  {
+    "id": "danca-dos-ventos",
+    "name": "Dança dos Ventos",
+    "category": "diamond",
+    "objective": "Abater uma Cabra de Leque Diamante com qualquer arma ética e passar na verificação de abate",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": ["O animal precisa passar na verificação de abate."],
+    "trophyImage": "/assets/danca_dos_ventos.png"
+  },
+  {
+    "id": "uivo-da-savana",
+    "name": "Uivo da Savana",
+    "category": "diamond",
+    "objective": "Abater um Chacal Listrado Diamante com qualquer arma ética e passar na verificação de abate",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": ["O animal precisa passar na verificação de abate."],
+    "trophyImage": "/assets/uivo_da_savana.png"
+  },
+  {
+    "id": "asas-do-amanhecer",
+    "name": "Asas do Amanhecer",
+    "category": "diamond",
+    "objective": "Abater uma Piadeira Diamante com qualquer arma ética e passar na verificação de abate",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": ["O animal precisa passar na verificação de abate."],
+    "trophyImage": "/assets/asas_do_amanhecer.png"
+  },
+  {
+    "id": "chama-da-campina",
+    "name": "Chama da Campina",
+    "category": "diamond",
+    "objective": "Abater uma Lebre da Nuca Dourada Diamante com qualquer arma ética e passar na verificação de abate",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": ["O animal precisa passar na verificação de abate."],
+    "trophyImage": "/assets/chama_da_campina.png"
   }
 ]
