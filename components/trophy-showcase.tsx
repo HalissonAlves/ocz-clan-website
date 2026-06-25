@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import {
   CalendarIcon,
-  CloseIcon,
   MapPinIcon,
   RifleIcon,
   TrophyIcon,
 } from "@/components/icons";
+import { TrophyLightbox } from "@/components/trophy-lightbox";
 import type { Player, ResolvedTrophy } from "@/lib/types";
 
 type TrophyShowcaseProps = {
@@ -23,31 +23,12 @@ export function TrophyShowcase({ players, trophies }: TrophyShowcaseProps) {
   const [selectedTrophy, setSelectedTrophy] = useState<ResolvedTrophy | null>(
     null,
   );
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
   const selectedPlayer = players.find(
     (player) => player.id === selectedPlayerId,
   );
   const visibleTrophies = trophies.filter(
     (trophy) => trophy.winnerId === selectedPlayerId,
   );
-
-  useEffect(() => {
-    if (!selectedTrophy) return;
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    closeButtonRef.current?.focus();
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setSelectedTrophy(null);
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [selectedTrophy]);
 
   return (
     <>
@@ -132,7 +113,8 @@ export function TrophyShowcase({ players, trophies }: TrophyShowcaseProps) {
                   key={trophy.id}
                   type="button"
                   onClick={() => setSelectedTrophy(trophy)}
-                  className="trophy-card group text-left"
+                  className="trophy-card group cursor-zoom-in text-left"
+                  aria-label={`Ampliar troféu ${trophy.displayName}`}
                 >
                   <span className="relative block aspect-[4/3] overflow-hidden bg-[radial-gradient(circle_at_50%_60%,rgba(242,181,68,0.15),transparent_55%)] p-7">
                     <Image
@@ -179,81 +161,44 @@ export function TrophyShowcase({ players, trophies }: TrophyShowcaseProps) {
       </section>
 
       {selectedTrophy && (
-        <div className="modal-backdrop fixed inset-0 z-[100] grid place-items-center overflow-y-auto p-4 sm:p-8">
-          <button
-            type="button"
-            className="absolute inset-0 cursor-default"
-            aria-label="Fechar detalhes do troféu"
-            onClick={() => setSelectedTrophy(null)}
-          />
-          <div
-            className="modal-panel relative z-10 my-auto w-full max-w-4xl overflow-hidden border border-white/12 bg-[#0e130f] shadow-2xl"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="trophy-modal-title"
-          >
-            <button
-              ref={closeButtonRef}
-              type="button"
-              onClick={() => setSelectedTrophy(null)}
-              className="absolute right-4 top-4 z-20 grid size-11 place-items-center border border-white/15 bg-black/40 text-stone-200 transition hover:border-amber-400 hover:text-amber-400"
-              aria-label="Fechar detalhes"
-            >
-              <CloseIcon className="size-5" />
-            </button>
-            <div className="grid md:grid-cols-[0.9fr_1.1fr]">
-              <div className="relative min-h-72 bg-[radial-gradient(circle_at_50%_55%,rgba(242,181,68,0.2),transparent_58%)] p-10 md:min-h-[36rem]">
-                <Image
-                  src={selectedTrophy.competition.trophyImage}
-                  alt={`Troféu ${selectedTrophy.displayName}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                  className="object-contain p-10 drop-shadow-[0_25px_24px_rgba(0,0,0,0.6)]"
-                />
-              </div>
-              <div className="flex flex-col justify-center border-t border-white/8 p-7 sm:p-10 md:border-l md:border-t-0">
-                <p className="eyebrow">Troféu conquistado</p>
-                <h2
-                  id="trophy-modal-title"
-                  className="mt-4 font-display text-4xl font-bold leading-tight text-stone-100"
-                >
-                  {selectedTrophy.displayName}
-                </h2>
-                <p className="mt-3 text-sm text-stone-500">
-                  Campeão:{" "}
-                  <strong className="font-semibold text-amber-400">
-                    {selectedTrophy.winner.name}
-                  </strong>
-                </p>
-                <div className="mt-8 grid gap-5 border-y border-white/8 py-6 sm:grid-cols-2">
-                  <Detail
-                    icon={<CalendarIcon className="size-5" />}
-                    label="Data"
-                    value={selectedTrophy.formattedDate}
-                  />
-                  <Detail
-                    icon={<MapPinIcon className="size-5" />}
-                    label="Reserva"
-                    value={selectedTrophy.reserve}
-                  />
-                  <Detail
-                    icon={<RifleIcon className="size-5" />}
-                    label="Arma"
-                    value={selectedTrophy.weapon}
-                  />
-                  <Detail
-                    icon={<TrophyIcon className="size-5" />}
-                    label="Edição"
-                    value={`${selectedTrophy.edition}ª disputa`}
-                  />
-                </div>
-                <p className="mt-7 text-sm leading-7 text-stone-400">
-                  {selectedTrophy.details}
-                </p>
-              </div>
-            </div>
+        <TrophyLightbox
+          image={selectedTrophy.competition.trophyImage}
+          title={selectedTrophy.displayName}
+          eyebrow="Troféu conquistado"
+          onClose={() => setSelectedTrophy(null)}
+        >
+          <p className="mt-3 text-sm text-stone-500">
+            Campeão:{" "}
+            <strong className="font-semibold text-amber-400">
+              {selectedTrophy.winner.name}
+            </strong>
+          </p>
+          <div className="mt-8 grid gap-5 border-y border-white/8 py-6 sm:grid-cols-2">
+            <Detail
+              icon={<CalendarIcon className="size-5" />}
+              label="Data"
+              value={selectedTrophy.formattedDate}
+            />
+            <Detail
+              icon={<MapPinIcon className="size-5" />}
+              label="Reserva"
+              value={selectedTrophy.reserve}
+            />
+            <Detail
+              icon={<RifleIcon className="size-5" />}
+              label="Arma"
+              value={selectedTrophy.weapon}
+            />
+            <Detail
+              icon={<TrophyIcon className="size-5" />}
+              label="Edição"
+              value={`${selectedTrophy.edition}ª disputa`}
+            />
           </div>
-        </div>
+          <p className="mt-7 text-sm leading-7 text-stone-400">
+            {selectedTrophy.details}
+          </p>
+        </TrophyLightbox>
       )}
     </>
   );

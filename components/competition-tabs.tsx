@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { CrosshairIcon, RifleIcon } from "@/components/icons";
+import { TrophyLightbox } from "@/components/trophy-lightbox";
 import type { Competition, CompetitionStat } from "@/lib/types";
 
 type CompetitionCategory = Competition["category"];
@@ -31,6 +32,8 @@ const categories: {
 export function CompetitionTabs({ competitions }: CompetitionTabsProps) {
   const [activeCategory, setActiveCategory] =
     useState<CompetitionCategory>("standard");
+  const [selectedCompetition, setSelectedCompetition] =
+    useState<Competition | null>(null);
   const activeCompetitions = competitions.filter(
     ({ competition }) => competition.category === activeCategory,
   );
@@ -111,7 +114,12 @@ export function CompetitionTabs({ competitions }: CompetitionTabsProps) {
             key={competition.id}
             className="competition-card grid sm:grid-cols-[13rem_1fr]"
           >
-            <div className="relative min-h-64 overflow-hidden border-b border-white/8 bg-[radial-gradient(circle_at_50%_55%,rgba(242,181,68,0.16),transparent_58%)] sm:min-h-full sm:border-b-0 sm:border-r">
+            <button
+              type="button"
+              onClick={() => setSelectedCompetition(competition)}
+              className="group relative min-h-64 cursor-zoom-in overflow-hidden border-b border-white/8 bg-[radial-gradient(circle_at_50%_55%,rgba(242,181,68,0.16),transparent_58%)] text-left sm:min-h-full sm:border-b-0 sm:border-r"
+              aria-label={`Ampliar troféu da competição ${competition.name}`}
+            >
               <span className="absolute left-4 top-4 z-10 font-display text-3xl font-bold text-white/10">
                 {String(index + 1).padStart(2, "0")}
               </span>
@@ -120,9 +128,12 @@ export function CompetitionTabs({ competitions }: CompetitionTabsProps) {
                 alt={`Troféu da competição ${competition.name}`}
                 fill
                 sizes="(max-width: 640px) 100vw, 208px"
-                className="object-contain p-7 drop-shadow-[0_18px_20px_rgba(0,0,0,0.55)]"
+                className="object-contain p-7 drop-shadow-[0_18px_20px_rgba(0,0,0,0.55)] transition duration-300 group-hover:scale-110"
               />
-            </div>
+              <span className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 translate-y-2 whitespace-nowrap border border-white/15 bg-black/50 px-3 py-2 text-[0.58rem] font-bold uppercase tracking-[0.16em] text-stone-200 opacity-0 backdrop-blur-sm transition group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
+                Ver ampliado
+              </span>
+            </button>
             <div className="flex flex-col p-6 sm:p-7">
               <div>
                 <p className="text-[0.58rem] font-bold uppercase tracking-[0.2em] text-amber-400">
@@ -181,6 +192,15 @@ export function CompetitionTabs({ competitions }: CompetitionTabsProps) {
           </article>
         ))}
       </div>
+
+      {selectedCompetition && (
+        <TrophyLightbox
+          image={selectedCompetition.trophyImage}
+          title={selectedCompetition.name}
+          eyebrow="Troféu da competição"
+          onClose={() => setSelectedCompetition(null)}
+        />
+      )}
     </div>
   );
 }
