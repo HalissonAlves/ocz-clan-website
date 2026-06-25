@@ -105,5 +105,32 @@
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/sombra_pintada.png"
+  },
+  {
+    "id": "rei-escarlate",
+    "name": "Rei Escarlate",
+    "category": "diamond",
+    "objective": "Abater um Leão Diamante com qualquer arma ética e passar na verificação de abate",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": ["O animal precisa passar na verificação de abate."],
+    "trophyImage": "/assets/rei_escarlate.png"
+  },
+  {
+    "id": "muralha-da-savana",
+    "name": "Muralha da Savana",
+    "category": "diamond",
+    "objective": "Abater um Búfalo Africano Diamante com qualquer arma ética e passar na verificação de abate",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": ["O animal precisa passar na verificação de abate."],
+    "trophyImage": "/assets/muralha_da_savana.png"
+  },
+  {
+    "id": "lâminas-do-deserto",
+    "name": "Lâminas do Deserto",
+    "category": "diamond",
+    "objective": "Abater um Órix do Cabo Diamante com qualquer arma ética e passar na verificação de abate",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": ["O animal precisa passar na verificação de abate."],
+    "trophyImage": "/assets/laminas_do_deserto.png"
   }
 ]
