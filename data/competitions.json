@@ -264,7 +264,7 @@
     "name": "Triplice Triunfo",
     "category": "standard",
     "objective": "Abater as três lebres de nuca dourada mais pesadas",
-    "allowedWeapons": ["Rifles de Precisão"],
+    "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na soma do peso das maiores lebres."],
     "trophyImage": "/assets/triplice_triunfo.png"
   }
