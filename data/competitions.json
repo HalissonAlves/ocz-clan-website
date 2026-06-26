@@ -74,7 +74,7 @@
     "id": "monarca-das-galhadas",
     "name": "Monarca das Galhadas",
     "category": "diamond",
-    "objective": "Abater um Alce Diamante com qualquer arma ética e passar na verificação de abate",
+    "objective": "Abater um Alce Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/monarca_das_galhadas.png"
@@ -83,7 +83,7 @@
     "id": "tita-de-gelo",
     "name": "Titã de Gelo",
     "category": "diamond",
-    "objective": "Abater um Urso Pardo Diamante com qualquer arma ética e passar na verificação de abate",
+    "objective": "Abater um Urso Pardo Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/tita_de_gelo.png"
@@ -92,7 +92,7 @@
     "id": "fantasma-branco",
     "name": "Fantasma Branco",
     "category": "diamond",
-    "objective": "Abater um Veado de Cauda Branca Diamante com qualquer arma ética e passar na verificação de abate",
+    "objective": "Abater um Veado de Cauda Branca Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/fantasma_branco.png"
@@ -101,7 +101,7 @@
     "id": "sombra-pintada",
     "name": "Sombra Pintada",
     "category": "diamond",
-    "objective": "Abater uma Jaguatirica Diamante com qualquer arma ética e passar na verificação de abate",
+    "objective": "Abater uma Jaguatirica Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/sombra_pintada.png"
@@ -110,7 +110,7 @@
     "id": "rei-escarlate",
     "name": "Rei Escarlate",
     "category": "diamond",
-    "objective": "Abater um Leão Diamante com qualquer arma ética e passar na verificação de abate",
+    "objective": "Abater um Leão Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/rei_escarlate.png"
@@ -119,7 +119,7 @@
     "id": "muralha-da-savana",
     "name": "Muralha da Savana",
     "category": "diamond",
-    "objective": "Abater um Búfalo Africano Diamante com qualquer arma ética e passar na verificação de abate",
+    "objective": "Abater um Búfalo Africano Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/muralha_da_savana.png"
@@ -128,7 +128,7 @@
     "id": "lâminas-do-deserto",
     "name": "Lâminas do Deserto",
     "category": "diamond",
-    "objective": "Abater um Órix do Cabo Diamante com qualquer arma ética e passar na verificação de abate",
+    "objective": "Abater um Órix do Cabo Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/laminas_do_deserto.png"
@@ -137,7 +137,7 @@
     "id": "trovao-da-savana",
     "name": "Trovão da Savana",
     "category": "diamond",
-    "objective": "Abater um Gnu de Cauda Preta Diamante com qualquer arma ética e passar na verificação de abate",
+    "objective": "Abater um Gnu de Cauda Preta Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/trovao_da_savana.png"
@@ -146,7 +146,7 @@
     "id": "presas-de-guerra",
     "name": "Presas de Guerra",
     "category": "diamond",
-    "objective": "Abater um Javali Africano Diamante com qualquer arma ética e passar na verificação de abate",
+    "objective": "Abater um Javali Africano Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/presas_de_guerra.png"
@@ -155,7 +155,7 @@
     "id": "espirais-do-destino",
     "name": "Espirais do Destino",
     "category": "diamond",
-    "objective": "Abater um Cudo Menor Diamante com qualquer arma ética e passar na verificação de abate",
+    "objective": "Abater um Cudo Menor Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/espirais_do_destino.png"
@@ -164,7 +164,7 @@
     "id": "danca-dos-ventos",
     "name": "Dança dos Ventos",
     "category": "diamond",
-    "objective": "Abater uma Cabra de Leque Diamante com qualquer arma ética e passar na verificação de abate",
+    "objective": "Abater uma Cabra de Leque Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/danca_dos_ventos.png"
@@ -173,7 +173,7 @@
     "id": "uivo-da-savana",
     "name": "Uivo da Savana",
     "category": "diamond",
-    "objective": "Abater um Chacal Listrado Diamante com qualquer arma ética e passar na verificação de abate",
+    "objective": "Abater um Chacal Listrado Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/uivo_da_savana.png"
@@ -182,7 +182,7 @@
     "id": "asas-do-amanhecer",
     "name": "Asas do Amanhecer",
     "category": "diamond",
-    "objective": "Abater uma Piadeira Diamante com qualquer arma ética e passar na verificação de abate",
+    "objective": "Abater uma Piadeira Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/asas_do_amanhecer.png"
@@ -191,7 +191,7 @@
     "id": "chama-da-campina",
     "name": "Chama da Campina",
     "category": "diamond",
-    "objective": "Abater uma Lebre da Nuca Dourada Diamante com qualquer arma ética e passar na verificação de abate",
+    "objective": "Abater uma Lebre da Nuca Dourada Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
     "trophyImage": "/assets/chama_da_campina.png"
@@ -200,7 +200,7 @@
     "id": "a-sombra",
     "name": "A Sombra",
     "category": "standard",
-    "objective": "Abater um animal a menos de 25 metros com um arco ou besta e passar na verificação de abate",
+    "objective": "Abater um animal a menos de 25 metros com um arco ou besta",
     "allowedWeapons": ["Arco", "Besta"],
     "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na menor distância do abate.", "Se o animal bugar e ficar parado em um local, o abate não será válido."],
     "trophyImage": "/assets/a_sombra.png"
@@ -209,7 +209,7 @@
     "id": "o-destemido",
     "name": "O Destemido",
     "category": "standard",
-    "objective": "Abater um predador a menos de 25 metros com uma espingarda e passar na verificação de abate",
+    "objective": "Abater um predador a menos de 25 metros com uma espingarda",
     "allowedWeapons": ["Espingarda"],
     "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na menor distância do abate.", "Alguns predadores não são permitidos, como: Jacaré-Açu e Crocodilo", "Se o animal bugar e ficar parado em um local, o abate não será válido."],
     "trophyImage": "/assets/o_destemido.png"
@@ -218,7 +218,7 @@
     "id": "sangue-de-ouro",
     "name": "Sangue de Ouro",
     "category": "standard",
-    "objective": "Abater um animal a pelo menos 100 metros de distância com um rifle sem mira e passar na verificação de abate",
+    "objective": "Abater um animal a pelo menos 100 metros de distância com um rifle sem mira",
     "allowedWeapons": ["Rifles de Precisão"],
     "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na maior distância do abate.", "O animal precisa ser Ouro"],
     "trophyImage": "/assets/sangue_de_ouro.png"
@@ -227,7 +227,7 @@
     "id": "destruidor-de-cranios",
     "name": "Destruidor de Crânios",
     "category": "standard",
-    "objective": "Abater um animal a pelo menos 50 metros de distância com um rifle sem mira e passar na verificação de abate",
+    "objective": "Abater um animal a pelo menos 50 metros de distância com um rifle sem mira",
     "allowedWeapons": ["Rifles de Precisão"],
     "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na maior distância do abate.", "O tiro precisa acertar o cérebro do animal"],
     "trophyImage": "/assets/destruidor_de_cranios.png"
@@ -236,7 +236,7 @@
     "id": "em-pleno-voo",
     "name": "Em Pleno Voo",
     "category": "standard",
-    "objective": "Abater uma ave em pleno voo a pelo menos 30 metros de distância com uma espingarda e passar na verificação de abate",
+    "objective": "Abater uma ave em pleno voo a pelo menos 30 metros de distância com uma espingarda",
     "allowedWeapons": ["Espingarda"],
     "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na maior distância do abate."],
     "trophyImage": "/assets/em_pleno_voo.png"
@@ -245,9 +245,27 @@
     "id": "whitetail-king",
     "name": "Whitetail King",
     "category": "standard",
-    "objective": "Abater um Veado de Cauda Branca com a maior pontuação e passar na verificação de abate",
+    "objective": "Abater um Veado de Cauda Branca com a maior pontuação",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na maior pontuação do animal."],
     "trophyImage": "/assets/whitetail_king.png"
+  },
+  {
+    "id": "rei-da-savana",
+    "name": "Rei da Savana",
+    "category": "standard",
+    "objective": "Abater o leão com a maior pontuação",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na maior pontuação do animal."],
+    "trophyImage": "/assets/rei_da_savana.png"
+  },
+  {
+    "id": "triplice-triunfo",
+    "name": "Triplice Triunfo",
+    "category": "standard",
+    "objective": "Abater as três lebres de nuca dourada mais pesadas",
+    "allowedWeapons": ["Rifles de Precisão"],
+    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na soma do peso das maiores lebres."],
+    "trophyImage": "/assets/triplice_triunfo.png"
   }
 ]
