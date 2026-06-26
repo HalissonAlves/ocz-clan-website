@@ -231,5 +231,23 @@
     "allowedWeapons": ["Rifles de Precisão"],
     "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na maior distância do abate.", "O tiro precisa acertar o cérebro do animal"],
     "trophyImage": "/assets/destruidor_de_cranios.png"
+  },
+  {
+    "id": "em-pleno-voo",
+    "name": "Em Pleno Voo",
+    "category": "standard",
+    "objective": "Abater uma ave em pleno voo a pelo menos 30 metros de distância com uma espingarda e passar na verificação de abate",
+    "allowedWeapons": ["Espingarda"],
+    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na maior distância do abate."],
+    "trophyImage": "/assets/em_pleno_voo.png"
+  },
+  {
+    "id": "whitetail-king",
+    "name": "Whitetail King",
+    "category": "standard",
+    "objective": "Abater um Veado de Cauda Branca com a maior pontuação e passar na verificação de abate",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na maior pontuação do animal."],
+    "trophyImage": "/assets/whitetail_king.png"
   }
 ]
