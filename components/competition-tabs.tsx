@@ -7,6 +7,14 @@ import { TrophyLightbox } from "@/components/trophy-lightbox";
 import type { Competition, CompetitionStat } from "@/lib/types";
 
 type CompetitionCategory = Competition["category"];
+type CompetitionTarget = NonNullable<Competition["target"]>;
+
+type CompetitionTargetTab = {
+  id: "all" | string;
+  label: string;
+  count: number;
+  type?: CompetitionTarget["type"];
+};
 
 type CompetitionTabsProps = {
   competitions: CompetitionStat[];
@@ -29,14 +37,67 @@ const categories: {
   },
 ];
 
+const targetTypeOrder: Record<CompetitionTarget["type"], number> = {
+  general: 0,
+  group: 1,
+  species: 2,
+};
+
+function getStandardTargetTabs(competitions: CompetitionStat[]) {
+  const targets = new Map<string, Omit<CompetitionTargetTab, "id">>();
+
+  for (const { competition } of competitions) {
+    if (competition.category !== "standard" || !competition.target) {
+      continue;
+    }
+
+    const currentTarget = targets.get(competition.target.slug);
+
+    targets.set(competition.target.slug, {
+      label: competition.target.label,
+      type: competition.target.type,
+      count: (currentTarget?.count ?? 0) + 1,
+    });
+  }
+
+  const targetTabs = Array.from(targets.entries())
+    .map(([id, target]) => ({ id, ...target }))
+    .sort((first, second) => {
+      const orderDifference =
+        targetTypeOrder[first.type ?? "species"] -
+        targetTypeOrder[second.type ?? "species"];
+
+      if (orderDifference !== 0) {
+        return orderDifference;
+      }
+
+      return first.label.localeCompare(second.label, "pt-BR");
+    });
+
+  return [
+    { id: "all", label: "Todas", count: competitions.length },
+    ...targetTabs,
+  ];
+}
 export function CompetitionTabs({ competitions }: CompetitionTabsProps) {
   const [activeCategory, setActiveCategory] =
     useState<CompetitionCategory>("standard");
+  const [activeTarget, setActiveTarget] = useState("all");
   const [selectedCompetition, setSelectedCompetition] =
     useState<Competition | null>(null);
-  const activeCompetitions = competitions.filter(
+  const categoryCompetitions = competitions.filter(
     ({ competition }) => competition.category === activeCategory,
   );
+  const targetTabs =
+    activeCategory === "standard"
+      ? getStandardTargetTabs(categoryCompetitions)
+      : [];
+  const activeCompetitions =
+    activeCategory === "standard" && activeTarget !== "all"
+      ? categoryCompetitions.filter(
+          ({ competition }) => competition.target?.slug === activeTarget,
+        )
+      : categoryCompetitions;
   const activeCategoryData = categories.find(
     (category) => category.id === activeCategory,
   );
@@ -59,7 +120,10 @@ export function CompetitionTabs({ competitions }: CompetitionTabsProps) {
                 key={category.id}
                 type="button"
                 aria-pressed={isActive}
-                onClick={() => setActiveCategory(category.id)}
+                onClick={() => {
+                  setActiveCategory(category.id);
+                  setActiveTarget("all");
+                }}
                 className={
                   "group relative flex min-h-14 shrink-0 items-center gap-3 px-4 text-left text-[0.68rem] font-bold uppercase tracking-[0.14em] transition-colors sm:px-6 " +
                   (isActive
@@ -90,6 +154,41 @@ export function CompetitionTabs({ competitions }: CompetitionTabsProps) {
           })}
         </nav>
       </div>
+
+      {activeCategory === "standard" && targetTabs.length > 1 && (
+        <div className="mb-8 flex gap-2 overflow-x-auto pb-2 md:flex-wrap md:overflow-visible md:pb-0">
+          {targetTabs.map((target) => {
+            const isActive = activeTarget === target.id;
+
+            return (
+              <button
+                key={target.id}
+                type="button"
+                aria-pressed={isActive}
+                onClick={() => setActiveTarget(target.id)}
+                className={
+                  "flex min-h-10 shrink-0 items-center gap-2 rounded-full border px-4 text-[0.62rem] font-bold uppercase tracking-[0.14em] transition-colors " +
+                  (isActive
+                    ? "border-amber-400 bg-amber-400 text-stone-950"
+                    : "border-white/10 bg-white/4 text-stone-500 hover:border-white/20 hover:text-stone-200")
+                }
+              >
+                <span>{target.label}</span>
+                <span
+                  className={
+                    "flex size-5 items-center justify-center rounded-full text-[0.56rem] transition-colors " +
+                    (isActive
+                      ? "bg-stone-950/15 text-stone-950"
+                      : "bg-white/6 text-stone-500")
+                  }
+                >
+                  {target.count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      )}
 
       <div className="mb-8 flex items-end justify-between gap-6">
         <div>

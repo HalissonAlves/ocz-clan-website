@@ -6,10 +6,17 @@ export type Player = {
   bio: string;
 };
 
+export type CompetitionTarget = {
+  type: "general" | "group" | "species";
+  slug: string;
+  label: string;
+};
+
 export type Competition = {
   id: string;
   name: string;
   category: "standard" | "diamond";
+  target?: CompetitionTarget;
   objective: string;
   allowedWeapons: string[];
   specialConditions: string[];

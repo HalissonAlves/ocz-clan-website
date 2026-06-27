@@ -11,10 +11,17 @@ import type {
 } from "@/lib/types";
 
 const players = playersData satisfies Player[];
-const competitions = competitionsData.map((competition) => ({
-  ...competition,
-  category: competition.category as Competition["category"],
-})) satisfies Competition[];
+const competitions = competitionsData.map((competition) => {
+  const normalizedCompetition = competition as Competition & {
+    target?: Competition["target"];
+  };
+
+  return {
+    ...normalizedCompetition,
+    category: normalizedCompetition.category as Competition["category"],
+    target: normalizedCompetition.target,
+  };
+}) satisfies Competition[];
 const trophies = trophiesData satisfies Trophy[];
 
 function assertUniqueIds(items: { id: string }[], label: string) {
@@ -47,6 +54,23 @@ function validateData() {
       throw new Error("Categoria de competição inválida.");
     }
 
+    if (competition.category === "standard") {
+      if (!competition.target) {
+        throw new Error(
+          "Competição padrão precisa informar um alvo para subtabs.",
+        );
+      }
+
+      if (
+        !["general", "group", "species"].includes(competition.target.type) ||
+        competition.target.slug.trim().length === 0 ||
+        competition.target.label.trim().length === 0
+      ) {
+        throw new Error(
+          "Competição padrão possui um alvo inválido para subtabs.",
+        );
+      }
+    }
     if (competition.allowedWeapons.length === 0) {
       throw new Error(
         `Competição "${competition.id}" precisa informar ao menos uma arma permitida.`,

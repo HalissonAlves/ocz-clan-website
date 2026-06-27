@@ -9,7 +9,12 @@
       "O animal precisa passar na verificação de abate",
       "Proibído o uso de miras ópticas"
     ],
-    "trophyImage": "/assets/flecha_fantasma-removebg-preview.png"
+    "trophyImage": "/assets/flecha_fantasma-removebg-preview.png",
+    "target": {
+      "type": "general",
+      "slug": "geral",
+      "label": "Geral"
+    }
   },
   {
     "id": "besta-impossivel",
@@ -21,7 +26,12 @@
       "O animal precisa passar na verificação de abate.",
       "Proibído o uso de miras ópticas"
     ],
-    "trophyImage": "/assets/besta_impossível-removebg-preview.png"
+    "trophyImage": "/assets/besta_impossível-removebg-preview.png",
+    "target": {
+      "type": "general",
+      "slug": "geral",
+      "label": "Geral"
+    }
   },
   {
     "id": "chumbo-selvagem",
@@ -34,7 +44,12 @@
       "Proibído o uso de miras ópticas",
       "Munição de chumbo é obrigatória (buckshot)"
     ],
-    "trophyImage": "/assets/chumbo_selvagem-removebg-preview.png"
+    "trophyImage": "/assets/chumbo_selvagem-removebg-preview.png",
+    "target": {
+      "type": "general",
+      "slug": "geral",
+      "label": "Geral"
+    }
   },
   {
     "id": "olho-de-aguia",
@@ -47,7 +62,12 @@
       "Proibído o uso de miras ópticas",
       "Munição slug é obrigatória para espingardas"
     ],
-    "trophyImage": "/assets/olho_de_aguia-removebg-preview.png"
+    "trophyImage": "/assets/olho_de_aguia-removebg-preview.png",
+    "target": {
+      "type": "general",
+      "slug": "geral",
+      "label": "Geral"
+    }
   },
   {
     "id": "pistoleiro-do-oeste",
@@ -59,7 +79,12 @@
       "O animal precisa passar na verificação de abate.",
       "Proibído o uso de miras ópticas"
     ],
-    "trophyImage": "/assets/pistoleiro_do_oeste-removebg-preview.png"
+    "trophyImage": "/assets/pistoleiro_do_oeste-removebg-preview.png",
+    "target": {
+      "type": "general",
+      "slug": "geral",
+      "label": "Geral"
+    }
   },
   {
     "id": "atirador-de-elite",
@@ -68,7 +93,12 @@
     "objective": "Abater o animal a uma distância mínima de 300 metros acertando o coração",
     "allowedWeapons": ["Rifles de Precisão"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/atirador_de_elite.png"
+    "trophyImage": "/assets/atirador_de_elite.png",
+    "target": {
+      "type": "general",
+      "slug": "geral",
+      "label": "Geral"
+    }
   },
   {
     "id": "monarca-das-galhadas",
@@ -202,8 +232,17 @@
     "category": "standard",
     "objective": "Abater um animal a menos de 25 metros com um arco ou besta",
     "allowedWeapons": ["Arco", "Besta"],
-    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na menor distância do abate.", "Se o animal bugar e ficar parado em um local, o abate não será válido."],
-    "trophyImage": "/assets/a_sombra.png"
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate.",
+      "O critério de desempate é baseado na menor distância do abate.",
+      "Se o animal bugar e ficar parado em um local, o abate não será válido."
+    ],
+    "trophyImage": "/assets/a_sombra.png",
+    "target": {
+      "type": "general",
+      "slug": "geral",
+      "label": "Geral"
+    }
   },
   {
     "id": "o-destemido",
@@ -211,8 +250,18 @@
     "category": "standard",
     "objective": "Abater um predador a menos de 25 metros com uma espingarda",
     "allowedWeapons": ["Espingarda"],
-    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na menor distância do abate.", "Alguns predadores não são permitidos, como: Jacaré-Açu e Crocodilo", "Se o animal bugar e ficar parado em um local, o abate não será válido."],
-    "trophyImage": "/assets/o_destemido.png"
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate.",
+      "O critério de desempate é baseado na menor distância do abate.",
+      "Alguns predadores não são permitidos, como: Jacaré-Açu e Crocodilo",
+      "Se o animal bugar e ficar parado em um local, o abate não será válido."
+    ],
+    "trophyImage": "/assets/o_destemido.png",
+    "target": {
+      "type": "group",
+      "slug": "predadores",
+      "label": "Predadores"
+    }
   },
   {
     "id": "sangue-de-ouro",
@@ -220,8 +269,17 @@
     "category": "standard",
     "objective": "Abater um animal a pelo menos 100 metros de distância com um rifle sem mira",
     "allowedWeapons": ["Rifles de Precisão"],
-    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na maior distância do abate.", "O animal precisa ser Ouro"],
-    "trophyImage": "/assets/sangue_de_ouro.png"
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate.",
+      "O critério de desempate é baseado na maior distância do abate.",
+      "O animal precisa ser Ouro"
+    ],
+    "trophyImage": "/assets/sangue_de_ouro.png",
+    "target": {
+      "type": "general",
+      "slug": "geral",
+      "label": "Geral"
+    }
   },
   {
     "id": "destruidor-de-cranios",
@@ -229,8 +287,17 @@
     "category": "standard",
     "objective": "Abater um animal a pelo menos 50 metros de distância com um rifle sem mira",
     "allowedWeapons": ["Rifles de Precisão"],
-    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na maior distância do abate.", "O tiro precisa acertar o cérebro do animal"],
-    "trophyImage": "/assets/destruidor_de_cranios.png"
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate.",
+      "O critério de desempate é baseado na maior distância do abate.",
+      "O tiro precisa acertar o cérebro do animal"
+    ],
+    "trophyImage": "/assets/destruidor_de_cranios.png",
+    "target": {
+      "type": "general",
+      "slug": "geral",
+      "label": "Geral"
+    }
   },
   {
     "id": "em-pleno-voo",
@@ -238,8 +305,16 @@
     "category": "standard",
     "objective": "Abater uma ave em pleno voo a pelo menos 30 metros de distância com uma espingarda",
     "allowedWeapons": ["Espingarda"],
-    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na maior distância do abate."],
-    "trophyImage": "/assets/em_pleno_voo.png"
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate.",
+      "O critério de desempate é baseado na maior distância do abate."
+    ],
+    "trophyImage": "/assets/em_pleno_voo.png",
+    "target": {
+      "type": "group",
+      "slug": "aves",
+      "label": "Aves"
+    }
   },
   {
     "id": "whitetail-king",
@@ -247,8 +322,16 @@
     "category": "standard",
     "objective": "Abater um Veado de Cauda Branca com a maior pontuação",
     "allowedWeapons": ["Qualquer arma ética"],
-    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na maior pontuação do animal."],
-    "trophyImage": "/assets/whitetail_king.png"
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate.",
+      "O critério de desempate é baseado na maior pontuação do animal."
+    ],
+    "trophyImage": "/assets/whitetail_king.png",
+    "target": {
+      "type": "species",
+      "slug": "veado-de-cauda-branca",
+      "label": "Veado de Cauda Branca"
+    }
   },
   {
     "id": "rei-da-savana",
@@ -256,8 +339,16 @@
     "category": "standard",
     "objective": "Abater o leão com a maior pontuação",
     "allowedWeapons": ["Qualquer arma ética"],
-    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na maior pontuação do animal."],
-    "trophyImage": "/assets/rei_da_savana.png"
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate.",
+      "O critério de desempate é baseado na maior pontuação do animal."
+    ],
+    "trophyImage": "/assets/rei_da_savana.png",
+    "target": {
+      "type": "species",
+      "slug": "leao",
+      "label": "Leão"
+    }
   },
   {
     "id": "triplice-triunfo",
@@ -265,7 +356,49 @@
     "category": "standard",
     "objective": "Abater as três lebres de nuca dourada mais pesadas",
     "allowedWeapons": ["Qualquer arma ética"],
-    "specialConditions": ["O animal precisa passar na verificação de abate.", "O critério de desempate é baseado na soma do peso das maiores lebres."],
-    "trophyImage": "/assets/triplice_triunfo.png"
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate.",
+      "O critério de desempate é baseado na soma do peso das maiores lebres."
+    ],
+    "trophyImage": "/assets/triplice_triunfo.png",
+    "target": {
+      "type": "group",
+      "slug": "lebre",
+      "label": "Lebre"
+    }
+  },
+  {
+    "id": "jantar-na-mesa",
+    "name": "Jantar na Mesa",
+    "category": "standard",
+    "objective": "Abater o Javali mais pesado com um arco",
+    "allowedWeapons": ["Arco"],
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate.",
+      "É permitido o uso de miras ópticas."
+    ],
+    "trophyImage": "/assets/jantar_na_mesa.png",
+    "target": {
+      "type": "species",
+      "slug": "javali",
+      "label": "Javali"
+    }
+  },
+  {
+    "id": "pluma-imperial",
+    "name": "Pluma Imperial",
+    "category": "standard",
+    "objective": "Abater o Faisão de maior pontuação",
+    "allowedWeapons": ["Qualquer arma ética"],
+    "specialConditions": [
+      "O animal precisa passar na verificação de abate.",
+      "É permitido o uso de miras ópticas."
+    ],
+    "trophyImage": "/assets/pluma_imperial.png",
+    "target": {
+      "type": "group",
+      "slug": "aves",
+      "label": "Aves"
+    }
   }
 ]
