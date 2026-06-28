@@ -305,7 +305,7 @@ button {
 }
 .trophy-lightbox-image::before {
   position: absolute;
-  inset: -35%;
+  inset: -75%;
   background: conic-gradient(
     from 90deg,
     transparent,
