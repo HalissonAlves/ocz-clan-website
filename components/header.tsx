@@ -32,7 +32,7 @@ export function Header() {
           aria-label="OCZ Clan — página inicial"
         >
           <Image
-            src="/assets/ocz_brasao.png"
+            src="/assets/ocz_brasao.webp"
             alt=""
             width={48}
             height={48}

@@ -95,7 +95,7 @@ export default function HomePage() {
             <div className="absolute inset-[10%] rounded-full border border-amber-400/20" />
             <div className="absolute inset-[20%] rounded-full border border-amber-400/10" />
             <Image
-              src="/assets/ocz_brasao.png"
+              src="/assets/ocz_brasao.webp"
               alt="Brasão oficial do clã OCZ"
               fill
               sizes="(max-width: 1024px) 80vw, 34vw"

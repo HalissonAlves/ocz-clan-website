@@ -8,7 +8,7 @@ export function Footer() {
         <div>
           <Link href="/" className="inline-flex items-center gap-3">
             <Image
-              src="/assets/ocz_brasao.png"
+              src="/assets/ocz_brasao.webp"
               alt=""
               width={44}
               height={44}

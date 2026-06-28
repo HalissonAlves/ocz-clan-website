@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     "clã",
   ],
   icons: {
-    icon: "/assets/ocz_brasao.png",
-    apple: "/assets/ocz_brasao.png",
+    icon: "/assets/ocz_brasao.webp",
+    apple: "/assets/ocz_brasao.webp",
   },
   openGraph: {
     title: "OCZ Clan | A caçada pela glória",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/assets/ocz_brasao.png",
+        url: "/assets/ocz_brasao.webp",
         width: 1080,
         height: 1080,
         alt: "Brasão do clã OCZ",
