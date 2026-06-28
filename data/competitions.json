@@ -9,7 +9,7 @@
       "O animal precisa passar na verificação de abate",
       "Proibído o uso de miras ópticas"
     ],
-    "trophyImage": "/assets/flecha_fantasma-removebg-preview.png",
+    "trophyImage": "/assets/flecha_fantasma.webp",
     "target": {
       "type": "general",
       "slug": "geral",
@@ -26,7 +26,7 @@
       "O animal precisa passar na verificação de abate.",
       "Proibído o uso de miras ópticas"
     ],
-    "trophyImage": "/assets/besta_impossível-removebg-preview.png",
+    "trophyImage": "/assets/besta_impossível.webp",
     "target": {
       "type": "general",
       "slug": "geral",
@@ -44,7 +44,7 @@
       "Proibído o uso de miras ópticas",
       "Munição de chumbo é obrigatória (buckshot)"
     ],
-    "trophyImage": "/assets/chumbo_selvagem-removebg-preview.png",
+    "trophyImage": "/assets/chumbo_selvagem.webp",
     "target": {
       "type": "general",
       "slug": "geral",
@@ -62,7 +62,7 @@
       "Proibído o uso de miras ópticas",
       "Munição slug é obrigatória para espingardas"
     ],
-    "trophyImage": "/assets/olho_de_aguia-removebg-preview.png",
+    "trophyImage": "/assets/olho_de_aguia.webp",
     "target": {
       "type": "general",
       "slug": "geral",
@@ -79,7 +79,7 @@
       "O animal precisa passar na verificação de abate.",
       "Proibído o uso de miras ópticas"
     ],
-    "trophyImage": "/assets/pistoleiro_do_oeste-removebg-preview.png",
+    "trophyImage": "/assets/pistoleiro_do_oeste.webp",
     "target": {
       "type": "general",
       "slug": "geral",
@@ -93,7 +93,7 @@
     "objective": "Abater o animal a uma distância mínima de 300 metros acertando o coração",
     "allowedWeapons": ["Rifles de Precisão"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/atirador_de_elite.png",
+    "trophyImage": "/assets/atirador_de_elite.webp",
     "target": {
       "type": "general",
       "slug": "geral",
@@ -107,7 +107,7 @@
     "objective": "Abater um Alce Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/monarca_das_galhadas.png"
+    "trophyImage": "/assets/monarca_das_galhadas.webp"
   },
   {
     "id": "tita-de-gelo",
@@ -116,7 +116,7 @@
     "objective": "Abater um Urso Pardo Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/tita_de_gelo.png"
+    "trophyImage": "/assets/tita_de_gelo.webp"
   },
   {
     "id": "fantasma-branco",
@@ -125,7 +125,7 @@
     "objective": "Abater um Veado de Cauda Branca Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/fantasma_branco.png"
+    "trophyImage": "/assets/fantasma_branco.webp"
   },
   {
     "id": "sombra-pintada",
@@ -134,7 +134,7 @@
     "objective": "Abater uma Jaguatirica Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/sombra_pintada.png"
+    "trophyImage": "/assets/sombra_pintada.webp"
   },
   {
     "id": "rei-escarlate",
@@ -143,7 +143,7 @@
     "objective": "Abater um Leão Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/rei_escarlate.png"
+    "trophyImage": "/assets/rei_escarlate.webp"
   },
   {
     "id": "muralha-da-savana",
@@ -152,7 +152,7 @@
     "objective": "Abater um Búfalo Africano Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/muralha_da_savana.png"
+    "trophyImage": "/assets/muralha_da_savana.webp"
   },
   {
     "id": "lâminas-do-deserto",
@@ -161,7 +161,7 @@
     "objective": "Abater um Órix do Cabo Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/laminas_do_deserto.png"
+    "trophyImage": "/assets/laminas_do_deserto.webp"
   },
   {
     "id": "trovao-da-savana",
@@ -170,7 +170,7 @@
     "objective": "Abater um Gnu de Cauda Preta Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/trovao_da_savana.png"
+    "trophyImage": "/assets/trovao_da_savana.webp"
   },
   {
     "id": "presas-de-guerra",
@@ -179,7 +179,7 @@
     "objective": "Abater um Javali Africano Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/presas_de_guerra.png"
+    "trophyImage": "/assets/presas_de_guerra.webp"
   },
   {
     "id": "espirais-do-destino",
@@ -188,7 +188,7 @@
     "objective": "Abater um Cudo Menor Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/espirais_do_destino.png"
+    "trophyImage": "/assets/espirais_do_destino.webp"
   },
   {
     "id": "danca-dos-ventos",
@@ -197,7 +197,7 @@
     "objective": "Abater uma Cabra de Leque Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/danca_dos_ventos.png"
+    "trophyImage": "/assets/danca_dos_ventos.webp"
   },
   {
     "id": "uivo-da-savana",
@@ -206,7 +206,7 @@
     "objective": "Abater um Chacal Listrado Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/uivo_da_savana.png"
+    "trophyImage": "/assets/uivo_da_savana.webp"
   },
   {
     "id": "asas-do-amanhecer",
@@ -215,7 +215,7 @@
     "objective": "Abater uma Piadeira Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/asas_do_amanhecer.png"
+    "trophyImage": "/assets/asas_do_amanhecer.webp"
   },
   {
     "id": "chama-da-campina",
@@ -224,7 +224,7 @@
     "objective": "Abater uma Lebre da Nuca Dourada Diamante com qualquer arma ética",
     "allowedWeapons": ["Qualquer arma ética"],
     "specialConditions": ["O animal precisa passar na verificação de abate."],
-    "trophyImage": "/assets/chama_da_campina.png"
+    "trophyImage": "/assets/chama_da_campina.webp"
   },
   {
     "id": "a-sombra",
@@ -237,7 +237,7 @@
       "O critério de desempate é baseado na menor distância do abate.",
       "Se o animal bugar e ficar parado em um local, o abate não será válido."
     ],
-    "trophyImage": "/assets/a_sombra.png",
+    "trophyImage": "/assets/a_sombra.webp",
     "target": {
       "type": "general",
       "slug": "geral",
@@ -256,7 +256,7 @@
       "Alguns predadores não são permitidos, como: Jacaré-Açu e Crocodilo",
       "Se o animal bugar e ficar parado em um local, o abate não será válido."
     ],
-    "trophyImage": "/assets/o_destemido.png",
+    "trophyImage": "/assets/o_destemido.webp",
     "target": {
       "type": "group",
       "slug": "predadores",
@@ -274,7 +274,7 @@
       "O critério de desempate é baseado na maior distância do abate.",
       "O animal precisa ser Ouro"
     ],
-    "trophyImage": "/assets/sangue_de_ouro.png",
+    "trophyImage": "/assets/sangue_de_ouro.webp",
     "target": {
       "type": "general",
       "slug": "geral",
@@ -292,7 +292,7 @@
       "O critério de desempate é baseado na maior distância do abate.",
       "O tiro precisa acertar o cérebro do animal"
     ],
-    "trophyImage": "/assets/destruidor_de_cranios.png",
+    "trophyImage": "/assets/destruidor_de_cranios.webp",
     "target": {
       "type": "general",
       "slug": "geral",
@@ -309,7 +309,7 @@
       "O animal precisa passar na verificação de abate.",
       "O critério de desempate é baseado na maior distância do abate."
     ],
-    "trophyImage": "/assets/em_pleno_voo.png",
+    "trophyImage": "/assets/em_pleno_voo.webp",
     "target": {
       "type": "group",
       "slug": "aves",
@@ -326,7 +326,7 @@
       "O animal precisa passar na verificação de abate.",
       "O critério de desempate é baseado na maior pontuação do animal."
     ],
-    "trophyImage": "/assets/whitetail_king.png",
+    "trophyImage": "/assets/whitetail_king.webp",
     "target": {
       "type": "species",
       "slug": "veado-de-cauda-branca",
@@ -343,7 +343,7 @@
       "O animal precisa passar na verificação de abate.",
       "O critério de desempate é baseado na maior pontuação do animal."
     ],
-    "trophyImage": "/assets/rei_da_savana.png",
+    "trophyImage": "/assets/rei_da_savana.webp",
     "target": {
       "type": "species",
       "slug": "leao",
@@ -360,7 +360,7 @@
       "O animal precisa passar na verificação de abate.",
       "O critério de desempate é baseado na soma do peso das maiores lebres."
     ],
-    "trophyImage": "/assets/triplice_triunfo.png",
+    "trophyImage": "/assets/triplice_triunfo.webp",
     "target": {
       "type": "group",
       "slug": "lebre",
@@ -377,7 +377,7 @@
       "O animal precisa passar na verificação de abate.",
       "É permitido o uso de miras ópticas."
     ],
-    "trophyImage": "/assets/jantar_na_mesa.png",
+    "trophyImage": "/assets/jantar_na_mesa.webp",
     "target": {
       "type": "species",
       "slug": "javali",
@@ -394,7 +394,7 @@
       "O animal precisa passar na verificação de abate.",
       "É permitido o uso de miras ópticas."
     ],
-    "trophyImage": "/assets/pluma_imperial.png",
+    "trophyImage": "/assets/pluma_imperial.webp",
     "target": {
       "type": "group",
       "slug": "aves",

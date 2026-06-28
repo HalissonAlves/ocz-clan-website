@@ -211,12 +211,14 @@ export function CompetitionTabs({ competitions }: CompetitionTabsProps) {
         {activeCompetitions.map(({ competition, trophyCount }, index) => (
           <article
             key={competition.id}
+            data-card-variant={competition.category}
             className="competition-card grid sm:grid-cols-[13rem_1fr]"
           >
             <button
               type="button"
               onClick={() => setSelectedCompetition(competition)}
-              className="group relative min-h-64 cursor-zoom-in overflow-hidden border-b border-white/8 bg-[radial-gradient(circle_at_50%_55%,rgba(242,181,68,0.16),transparent_58%)] text-left sm:min-h-full sm:border-b-0 sm:border-r"
+              data-glow-variant={competition.category}
+              className="group trophy-glow relative min-h-64 cursor-zoom-in overflow-hidden border-b border-white/8 text-left sm:min-h-full sm:border-b-0 sm:border-r"
               aria-label={`Ampliar troféu da competição ${competition.name}`}
             >
               <span className="absolute left-4 top-4 z-10 font-display text-3xl font-bold text-white/10">
@@ -295,6 +297,7 @@ export function CompetitionTabs({ competitions }: CompetitionTabsProps) {
       {selectedCompetition && (
         <TrophyLightbox
           image={selectedCompetition.trophyImage}
+          glowVariant={selectedCompetition.category}
           title={selectedCompetition.name}
           eyebrow="Troféu da competição"
           onClose={() => setSelectedCompetition(null)}

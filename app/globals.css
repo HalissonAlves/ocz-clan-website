@@ -248,11 +248,39 @@ button {
     border-color 220ms ease,
     box-shadow 220ms ease;
 }
+.competition-card[data-card-variant="diamond"],
+.trophy-card[data-card-variant="diamond"] {
+  background:
+    radial-gradient(
+      circle at 28% 18%,
+      rgba(125, 211, 252, 0.1),
+      transparent 34%
+    ), linear-gradient(145deg, #0d171b, #0a1013);
+}
+.competition-card[data-card-variant="diamond"] {
+  border-color: rgba(125, 211, 252, 0.16);
+}
+.trophy-card[data-card-variant="diamond"] {
+  border-color: rgba(125, 211, 252, 0.14);
+}
 .competition-card:hover,
 .trophy-card:hover {
   transform: translateY(-5px);
   border-color: rgba(242, 181, 68, 0.42);
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.3);
+}
+.competition-card[data-card-variant="diamond"]:hover,
+.trophy-card[data-card-variant="diamond"]:hover {
+  border-color: rgba(125, 211, 252, 0.46);
+  box-shadow: 0 24px 50px rgba(2, 8, 12, 0.36);
+}
+.trophy-card[data-card-variant="diamond"]::after {
+  background: linear-gradient(
+      145deg,
+      rgba(125, 211, 252, 0.14),
+      transparent 38%
+    )
+    border-box;
 }
 .trophy-card::after {
   position: absolute;
@@ -286,6 +314,49 @@ button {
   );
   content: "";
   animation: trophy-light 8s linear infinite;
+}
+.competition-card .trophy-glow {
+  background: radial-gradient(
+    circle at 50% 55%,
+    rgba(242, 181, 68, 0.16),
+    transparent 58%
+  );
+}
+.trophy-card .trophy-glow {
+  background: radial-gradient(
+    circle at 50% 60%,
+    rgba(242, 181, 68, 0.15),
+    transparent 55%
+  );
+}
+.trophy-lightbox-image.trophy-glow {
+  background: radial-gradient(
+    circle at 50% 52%,
+    rgba(242, 181, 68, 0.24),
+    transparent 55%
+  );
+}
+.trophy-glow[data-glow-variant="diamond"] {
+  background:
+    radial-gradient(
+      circle at 50% 54%,
+      rgba(125, 211, 252, 0.28),
+      transparent 58%
+    ),
+    radial-gradient(
+      circle at 48% 42%,
+      rgba(255, 255, 255, 0.16),
+      transparent 38%
+    ), #0b1114;
+}
+.trophy-lightbox-image.trophy-glow[data-glow-variant="diamond"]::before {
+  background: conic-gradient(
+    from 90deg,
+    transparent,
+    rgba(125, 211, 252, 0.16),
+    rgba(255, 255, 255, 0.12),
+    transparent 30%
+  );
 }
 @keyframes fade-in {
   from {

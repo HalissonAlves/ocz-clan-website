@@ -113,10 +113,14 @@ export function TrophyShowcase({ players, trophies }: TrophyShowcaseProps) {
                   key={trophy.id}
                   type="button"
                   onClick={() => setSelectedTrophy(trophy)}
+                  data-card-variant={trophy.competition.category}
                   className="trophy-card group cursor-zoom-in text-left"
                   aria-label={`Ampliar troféu ${trophy.displayName}`}
                 >
-                  <span className="relative block aspect-[4/3] overflow-hidden bg-[radial-gradient(circle_at_50%_60%,rgba(242,181,68,0.15),transparent_55%)] p-7">
+                  <span
+                    className="relative block aspect-[4/3] overflow-hidden trophy-glow p-7"
+                    data-glow-variant={trophy.competition.category}
+                  >
                     <Image
                       src={trophy.competition.trophyImage}
                       alt={`Troféu ${trophy.displayName}`}
@@ -163,6 +167,7 @@ export function TrophyShowcase({ players, trophies }: TrophyShowcaseProps) {
       {selectedTrophy && (
         <TrophyLightbox
           image={selectedTrophy.competition.trophyImage}
+          glowVariant={selectedTrophy.competition.category}
           title={selectedTrophy.displayName}
           eyebrow="Troféu conquistado"
           onClose={() => setSelectedTrophy(null)}

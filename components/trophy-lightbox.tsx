@@ -7,6 +7,7 @@ import { CloseIcon } from "@/components/icons";
 type TrophyLightboxProps = {
   image: string;
   title: string;
+  glowVariant?: "standard" | "diamond";
   eyebrow?: string;
   onClose: () => void;
   children?: React.ReactNode;
@@ -15,6 +16,7 @@ type TrophyLightboxProps = {
 export function TrophyLightbox({
   image,
   title,
+  glowVariant = "standard",
   eyebrow = "Troféu em destaque",
   onClose,
   children,
@@ -64,7 +66,10 @@ export function TrophyLightbox({
         </button>
 
         <div className={children ? "grid md:grid-cols-[1.15fr_0.85fr]" : ""}>
-          <div className="trophy-lightbox-image relative min-h-[24rem] overflow-hidden bg-[radial-gradient(circle_at_50%_52%,rgba(242,181,68,0.24),transparent_55%)] p-8 sm:min-h-[34rem] md:min-h-[42rem]">
+          <div
+            className="trophy-lightbox-image trophy-glow relative min-h-[24rem] overflow-hidden p-8 sm:min-h-[34rem] md:min-h-[42rem]"
+            data-glow-variant={glowVariant}
+          >
             <div
               className="absolute inset-x-[18%] bottom-[8%] h-[10%] rounded-full bg-black/60 blur-2xl"
               aria-hidden="true"
