@@ -9,7 +9,7 @@ import {
 import { signOut } from "@/app/login/actions";
 import { requireAdmin } from "@/lib/auth";
 import { getLatestOpenSession } from "@/lib/live-data";
-import { getCompetitionCatalog } from "@/lib/live-session";
+import { getCompetitionCatalog } from "@/lib/public-competitions";
 
 export const metadata: Metadata = {
   title: "Rodadas",
@@ -21,7 +21,7 @@ export default async function AdminRoundsPage() {
   const today = new Date().toISOString().slice(0, 10);
   const [session, competitions] = await Promise.all([
     getLatestOpenSession(),
-    Promise.resolve(getCompetitionCatalog()),
+    getCompetitionCatalog(),
   ]);
 
   return (

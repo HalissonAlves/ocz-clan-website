@@ -1,9 +1,12 @@
-"use server";
+﻿"use server";
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireAdmin } from "@/lib/auth";
-import { getCompetitionCatalog, toCompetitionRow } from "@/lib/live-session";
+import {
+  getCompetitionCatalog,
+  toCompetitionRow,
+} from "@/lib/public-competitions";
 import { createClient } from "@/lib/supabase/server";
 
 export async function createGameplaySession(formData: FormData) {
@@ -23,7 +26,7 @@ export async function createGameplaySession(formData: FormData) {
     throw new Error("Informe titulo, duracao e ao menos uma competicao.");
   }
 
-  const catalog = getCompetitionCatalog();
+  const catalog = await getCompetitionCatalog();
   const selectedCompetitions = catalog.filter((competition) =>
     competitionIds.includes(competition.id),
   );

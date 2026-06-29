@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { CompetitionTabs } from "@/components/competition-tabs";
 import { PageHero } from "@/components/page-hero";
-import { getCompetitionStats } from "@/lib/data";
+import { getCompetitionStatsWithSupabase } from "@/lib/public-competitions";
 
 export const metadata: Metadata = {
   title: "Competições",
@@ -9,8 +9,8 @@ export const metadata: Metadata = {
     "Conheça as modalidades, objetivos e regras das competições do clã OCZ.",
 };
 
-export default function CompetitionsPage() {
-  const competitions = getCompetitionStats();
+export default async function CompetitionsPage() {
+  const competitions = await getCompetitionStatsWithSupabase();
 
   return (
     <>
