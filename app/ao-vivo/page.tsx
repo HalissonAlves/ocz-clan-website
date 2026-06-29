@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { signOut } from "@/app/login/actions";
+import { LiveSessionBoard } from "@/components/live-session-board";
+import { LiveSessionRefresh } from "@/components/live-session-refresh";
 import { getCurrentProfile, requireUser } from "@/lib/auth";
+import { getLatestOpenSession } from "@/lib/live-data";
 
 export const metadata: Metadata = {
   title: "Competições ao vivo",
@@ -10,13 +13,19 @@ export const metadata: Metadata = {
 export default async function LivePage() {
   await requireUser();
   const profile = await getCurrentProfile();
+  const session = await getLatestOpenSession();
 
   if (!profile) {
     throw new Error("Profile nao configurado para o usuario atual.");
   }
 
+  if (session) {
+    return <LiveSessionBoard session={session} profile={profile} />;
+  }
+
   return (
     <section className="section-space">
+      <LiveSessionRefresh />
       <div className="page-container">
         <div className="mb-10 flex flex-col gap-5 border-b border-white/8 pb-8 sm:flex-row sm:items-end sm:justify-between">
           <div>

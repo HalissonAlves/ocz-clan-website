@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 import { createClient } from "@/lib/supabase/browser";
 
 type LiveEntryFieldProps = {
@@ -26,22 +26,6 @@ export function LiveEntryField({
   const [score, setScore] = useState(initialScore);
   const [notes, setNotes] = useState(initialNotes);
   const canEdit = currentPlayerId === playerId;
-
-  useEffect(() => {
-    const supabase = createClient();
-    const channel = supabase
-      .channel("live-entry-refresh")
-      .on(
-        "postgres_changes",
-        { event: "*", schema: "public", table: "session_entries" },
-        () => startTransition(() => router.refresh()),
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, [router]);
 
   async function save() {
     if (!canEdit) return;
