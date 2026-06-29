@@ -2,16 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon, CrosshairIcon, TrophyIcon } from "@/components/icons";
 import { StatCard } from "@/components/stat-card";
-import {
-  getCompetitionStats,
-  getPlayerStats,
-  getResolvedTrophies,
-} from "@/lib/data";
+import { getCompetitionStatsWithSupabase } from "@/lib/public-competitions";
+import { getPlayerStatsWithSupabase } from "@/lib/public-players";
+import { getResolvedTrophiesWithSupabase } from "@/lib/public-trophies";
 
-export default function HomePage() {
-  const trophies = getResolvedTrophies();
-  const playerStats = getPlayerStats();
-  const competitionStats = getCompetitionStats();
+export default async function HomePage() {
+  const [trophies, playerStats, competitionStats] = await Promise.all([
+    getResolvedTrophiesWithSupabase(),
+    getPlayerStatsWithSupabase(),
+    getCompetitionStatsWithSupabase(),
+  ]);
   const leader = [...playerStats].sort(
     (first, second) => second.trophyCount - first.trophyCount,
   )[0];

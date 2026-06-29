@@ -1,5 +1,4 @@
-﻿import { getCompetitionStats, getCompetitions } from "@/lib/data";
-import { createClient } from "@/lib/supabase/server";
+﻿import { createClient } from "@/lib/supabase/server";
 import type {
   Competition,
   CompetitionStat,
@@ -48,13 +47,13 @@ export async function getCompetitionCatalog() {
       .eq("active", true)
       .order("name", { ascending: true });
 
-    if (error || !data?.length) {
-      return getCompetitions().sort(sortCompetitionByName);
+    if (error) {
+      throw new Error(error.message);
     }
 
     return (data as DbCompetition[]).map(resolveDatabaseCompetition);
   } catch {
-    return getCompetitions().sort(sortCompetitionByName);
+    return [];
   }
 }
 
@@ -84,8 +83,8 @@ export async function getCompetitionStatsWithSupabase() {
       .eq("active", true)
       .order("name", { ascending: true });
 
-    if (error || !data?.length) {
-      return getCompetitionStats();
+    if (error) {
+      throw new Error(error.message);
     }
 
     return (data as DbCompetitionStat[]).map((competition) => ({
@@ -93,7 +92,7 @@ export async function getCompetitionStatsWithSupabase() {
       trophyCount: competition.trophies.length,
     })) satisfies CompetitionStat[];
   } catch {
-    return getCompetitionStats();
+    return [];
   }
 }
 
@@ -131,8 +130,4 @@ function resolveDatabaseCompetition(competition: DbCompetition): Competition {
         }
       : undefined,
   };
-}
-
-function sortCompetitionByName(first: Competition, second: Competition) {
-  return first.name.localeCompare(second.name, "pt-BR");
 }

@@ -1,4 +1,4 @@
-﻿import { formatDate, getResolvedTrophies, toRoman } from "@/lib/data";
+﻿import { formatDate, toRoman } from "@/lib/data";
 import { createClient } from "@/lib/supabase/server";
 import type {
   Competition,
@@ -39,8 +39,6 @@ type DbTrophy = {
 };
 
 export async function getResolvedTrophiesWithSupabase() {
-  const fallbackTrophies = getResolvedTrophies();
-
   try {
     // biome-ignore lint/suspicious/noExplicitAny: temporary until Supabase generated types include trophies.
     const supabase = (await createClient()) as any;
@@ -76,29 +74,18 @@ export async function getResolvedTrophiesWithSupabase() {
       `);
 
     if (error) {
-      return fallbackTrophies;
+      throw new Error(error.message);
     }
 
-    const databaseTrophies = (data as DbTrophy[])
+    return (data as DbTrophy[])
       .map(resolveDatabaseTrophy)
-      .filter((trophy): trophy is ResolvedTrophy => Boolean(trophy));
-
-    const trophiesById = new Map<string, ResolvedTrophy>();
-
-    for (const trophy of fallbackTrophies) {
-      trophiesById.set(trophy.id, trophy);
-    }
-
-    for (const trophy of databaseTrophies) {
-      trophiesById.set(trophy.id, trophy);
-    }
-
-    return Array.from(trophiesById.values()).sort(
-      (first, second) =>
-        new Date(second.date).getTime() - new Date(first.date).getTime(),
-    );
+      .filter((trophy): trophy is ResolvedTrophy => Boolean(trophy))
+      .sort(
+        (first, second) =>
+          new Date(second.date).getTime() - new Date(first.date).getTime(),
+      );
   } catch {
-    return fallbackTrophies;
+    return [];
   }
 }
 

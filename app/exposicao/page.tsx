@@ -1,7 +1,7 @@
 ﻿import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { TrophyShowcase } from "@/components/trophy-showcase";
-import { getPlayers } from "@/lib/data";
+import { getPlayersWithSupabase } from "@/lib/public-players";
 import { getResolvedTrophiesWithSupabase } from "@/lib/public-trophies";
 
 export const metadata: Metadata = {
@@ -10,7 +10,10 @@ export const metadata: Metadata = {
 };
 
 export default async function ShowcasePage() {
-  const trophies = await getResolvedTrophiesWithSupabase();
+  const [players, trophies] = await Promise.all([
+    getPlayersWithSupabase(),
+    getResolvedTrophiesWithSupabase(),
+  ]);
 
   return (
     <>
@@ -20,7 +23,7 @@ export default async function ShowcasePage() {
         accent="ser lembrada."
         description="Escolha um integrante do clã e percorra as conquistas que marcaram cada edição das competições OCZ."
       />
-      <TrophyShowcase players={getPlayers()} trophies={trophies} />
+      <TrophyShowcase players={players} trophies={trophies} />
     </>
   );
 }
