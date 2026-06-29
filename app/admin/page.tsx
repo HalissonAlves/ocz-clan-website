@@ -51,6 +51,21 @@ export default async function AdminPage() {
               Confira os trofeus registrados no banco a partir das rodadas.
             </span>
           </Link>
+
+          <Link
+            href="/admin/competicoes"
+            className="border border-white/10 bg-white/[0.03] p-6 transition hover:border-amber-400/50"
+          >
+            <span className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-amber-400">
+              CMS
+            </span>
+            <span className="mt-3 block font-display text-3xl font-bold text-stone-100">
+              Competicoes
+            </span>
+            <span className="mt-4 block text-sm leading-7 text-stone-400">
+              Crie, edite e desative competicoes sem alterar o codigo.
+            </span>
+          </Link>
         </div>
       </div>
     </section>
