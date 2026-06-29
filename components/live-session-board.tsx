@@ -51,35 +51,56 @@ export function LiveSessionBoard({ session, profile }: LiveSessionBoardProps) {
               </p>
             </div>
 
-            {session.session_competitions.map((sessionCompetition) => (
-              <article
-                key={sessionCompetition.id}
-                className="border border-white/10 bg-[#0d120f] p-6"
-              >
-                <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-stone-500">
-                  Competição ativa
-                </p>
-                <h3 className="mt-2 font-display text-3xl font-bold text-stone-100">
-                  {sessionCompetition.competitions?.name}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-stone-400">
-                  {sessionCompetition.competitions?.objective}
-                </p>
-                <div className="mt-6 grid gap-4">
-                  {sessionCompetition.session_entries.map((entry) => (
-                    <LiveEntryField
-                      key={entry.id}
-                      entryId={entry.id}
-                      currentPlayerId={profile.player_id}
-                      playerId={entry.player_id}
-                      playerName={entry.players?.name ?? "Jogador"}
-                      initialScore={entry.score_text}
-                      initialNotes={entry.notes}
-                    />
-                  ))}
-                </div>
-              </article>
-            ))}
+            {session.session_competitions.map((sessionCompetition) => {
+              const winner = sessionCompetition.session_entries.find(
+                (entry) =>
+                  entry.player_id === sessionCompetition.winner_player_id,
+              );
+
+              return (
+                <article
+                  key={sessionCompetition.id}
+                  className="border border-white/10 bg-[#0d120f] p-6"
+                >
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-stone-500">
+                        Competição ativa
+                      </p>
+                      <h3 className="mt-2 font-display text-3xl font-bold text-stone-100">
+                        {sessionCompetition.competitions?.name}
+                      </h3>
+                    </div>
+                    {winner?.players?.name && (
+                      <div className="border border-amber-400/25 bg-amber-400/[0.08] px-4 py-3 text-left sm:text-right">
+                        <p className="text-[0.6rem] font-bold uppercase tracking-[0.16em] text-amber-400">
+                          Vencedor
+                        </p>
+                        <p className="mt-1 font-display text-xl font-bold text-stone-100">
+                          {winner.players.name}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  <p className="mt-3 text-sm leading-7 text-stone-400">
+                    {sessionCompetition.competitions?.objective}
+                  </p>
+                  <div className="mt-6 grid gap-4">
+                    {sessionCompetition.session_entries.map((entry) => (
+                      <LiveEntryField
+                        key={entry.id}
+                        entryId={entry.id}
+                        currentPlayerId={profile.player_id}
+                        playerId={entry.player_id}
+                        playerName={entry.players?.name ?? "Jogador"}
+                        initialScore={entry.score_text}
+                        initialNotes={entry.notes}
+                      />
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
           </div>
 
           <aside className="grid content-start gap-5">

@@ -20,7 +20,7 @@ export async function createGameplaySession(formData: FormData) {
     competitionIds.length === 0 ||
     !Number.isFinite(durationMinutes)
   ) {
-    throw new Error("Informe título, duração e ao menos uma competição.");
+    throw new Error("Informe titulo, duracao e ao menos uma competicao.");
   }
 
   const catalog = getCompetitionCatalog();
@@ -30,6 +30,21 @@ export async function createGameplaySession(formData: FormData) {
 
   // biome-ignore lint/suspicious/noExplicitAny: temporary until Supabase generated types include live tables.
   const supabase = (await createClient()) as any;
+
+  const { data: existingSession, error: existingSessionError } = await supabase
+    .from("gameplay_sessions")
+    .select("id")
+    .in("status", ["draft", "scheduled", "running"])
+    .limit(1)
+    .maybeSingle();
+
+  if (existingSessionError) {
+    throw new Error(existingSessionError.message);
+  }
+
+  if (existingSession) {
+    throw new Error("Finalize a rodada aberta antes de criar uma nova.");
+  }
 
   const { data: session, error: sessionError } = await supabase
     .from("gameplay_sessions")
@@ -141,6 +156,35 @@ export async function finishGameplaySession(formData: FormData) {
     .from("gameplay_sessions")
     .update({ status: "finished" })
     .eq("id", sessionId);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  revalidatePath("/admin/rodadas");
+  revalidatePath("/ao-vivo");
+}
+
+export async function setSessionCompetitionWinner(formData: FormData) {
+  await requireAdmin();
+  const sessionCompetitionId = String(
+    formData.get("sessionCompetitionId") ?? "",
+  );
+  const winnerPlayerId = String(formData.get("winnerPlayerId") ?? "");
+
+  if (!sessionCompetitionId) {
+    throw new Error("Competicao da rodada nao informada.");
+  }
+
+  // biome-ignore lint/suspicious/noExplicitAny: temporary until Supabase generated types include live tables.
+  const supabase = (await createClient()) as any;
+  const { error } = await supabase
+    .from("session_competitions")
+    .update({
+      winner_player_id: winnerPlayerId || null,
+      status: winnerPlayerId ? "finished" : "active",
+    })
+    .eq("id", sessionCompetitionId);
 
   if (error) {
     throw new Error(error.message);
