@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import {
   createGameplaySession,
+  createTrophyFromSessionCompetition,
   finishGameplaySession,
   setSessionCompetitionWinner,
   startGameplaySession,
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 
 export default async function AdminRoundsPage() {
   await requireAdmin();
+  const today = new Date().toISOString().slice(0, 10);
   const [session, competitions] = await Promise.all([
     getLatestOpenSession(),
     Promise.resolve(getCompetitionCatalog()),
@@ -88,47 +90,107 @@ export default async function AdminRoundsPage() {
                 );
 
                 return (
-                  <form
+                  <div
                     key={sessionCompetition.id}
-                    action={setSessionCompetitionWinner}
-                    className="grid gap-4 border border-white/10 bg-black/20 p-4"
+                    className="grid gap-3 border border-white/10 bg-black/20 p-4"
                   >
-                    <input
-                      type="hidden"
-                      name="sessionCompetitionId"
-                      value={sessionCompetition.id}
-                    />
-                    <div>
-                      <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-stone-500">
-                        Vencedor
-                      </p>
-                      <h3 className="mt-2 font-display text-2xl font-bold text-stone-100">
-                        {sessionCompetition.competitions?.name ?? "Competicao"}
-                      </h3>
-                      <p className="mt-1 text-xs uppercase tracking-[0.14em] text-stone-500">
-                        {winner?.players?.name
-                          ? `Atual: ${winner.players.name}`
-                          : "Sem vencedor definido"}
-                      </p>
-                    </div>
-                    <div className="flex flex-col gap-3 sm:flex-row">
-                      <select
-                        name="winnerPlayerId"
-                        defaultValue={sessionCompetition.winner_player_id ?? ""}
-                        className="min-h-11 flex-1 border border-white/10 bg-[#0d120f] px-3 text-sm text-stone-100 outline-none transition focus:border-amber-400"
+                    <form
+                      action={setSessionCompetitionWinner}
+                      className="grid gap-4"
+                    >
+                      <input
+                        type="hidden"
+                        name="sessionCompetitionId"
+                        value={sessionCompetition.id}
+                      />
+                      <div>
+                        <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-stone-500">
+                          Vencedor
+                        </p>
+                        <h3 className="mt-2 font-display text-2xl font-bold text-stone-100">
+                          {sessionCompetition.competitions?.name ??
+                            "Competicao"}
+                        </h3>
+                        <p className="mt-1 text-xs uppercase tracking-[0.14em] text-stone-500">
+                          {winner?.players?.name
+                            ? `Atual: ${winner.players.name}`
+                            : "Sem vencedor definido"}
+                        </p>
+                      </div>
+                      <div className="flex flex-col gap-3 sm:flex-row">
+                        <select
+                          name="winnerPlayerId"
+                          defaultValue={
+                            sessionCompetition.winner_player_id ?? ""
+                          }
+                          className="min-h-11 flex-1 border border-white/10 bg-[#0d120f] px-3 text-sm text-stone-100 outline-none transition focus:border-amber-400"
+                        >
+                          <option value="">Sem vencedor</option>
+                          {sessionCompetition.session_entries.map((entry) => (
+                            <option
+                              key={entry.player_id}
+                              value={entry.player_id}
+                            >
+                              {entry.players?.name ?? "Jogador"}
+                            </option>
+                          ))}
+                        </select>
+                        <button type="submit" className="button-primary">
+                          Salvar
+                        </button>
+                      </div>
+                    </form>
+
+                    {sessionCompetition.winner_player_id && (
+                      <form
+                        action={createTrophyFromSessionCompetition}
+                        className="grid gap-3 border border-white/10 bg-white/[0.03] p-4"
                       >
-                        <option value="">Sem vencedor</option>
-                        {sessionCompetition.session_entries.map((entry) => (
-                          <option key={entry.player_id} value={entry.player_id}>
-                            {entry.players?.name ?? "Jogador"}
-                          </option>
-                        ))}
-                      </select>
-                      <button type="submit" className="button-primary">
-                        Salvar
-                      </button>
-                    </div>
-                  </form>
+                        <input
+                          type="hidden"
+                          name="sessionCompetitionId"
+                          value={sessionCompetition.id}
+                        />
+                        <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-amber-400">
+                          Trofeu oficial
+                        </p>
+                        <div className="grid gap-3 sm:grid-cols-2">
+                          <input
+                            name="trophyDate"
+                            type="date"
+                            required
+                            defaultValue={today}
+                            className="min-h-11 border border-white/10 bg-[#0d120f] px-3 text-sm text-stone-100 outline-none transition focus:border-amber-400"
+                          />
+                          <input
+                            name="reserve"
+                            required
+                            placeholder="Reserva"
+                            className="min-h-11 border border-white/10 bg-[#0d120f] px-3 text-sm text-stone-100 outline-none transition placeholder:text-stone-600 focus:border-amber-400"
+                          />
+                        </div>
+                        <input
+                          name="weapon"
+                          required
+                          placeholder="Arma usada"
+                          className="min-h-11 border border-white/10 bg-[#0d120f] px-3 text-sm text-stone-100 outline-none transition placeholder:text-stone-600 focus:border-amber-400"
+                        />
+                        <textarea
+                          name="details"
+                          required
+                          rows={3}
+                          placeholder="Resumo da conquista"
+                          className="resize-none border border-white/10 bg-[#0d120f] px-3 py-2 text-sm leading-6 text-stone-100 outline-none transition placeholder:text-stone-600 focus:border-amber-400"
+                        />
+                        <button
+                          type="submit"
+                          className="button-secondary justify-self-start"
+                        >
+                          Criar trofeu
+                        </button>
+                      </form>
+                    )}
+                  </div>
                 );
               })}
             </div>

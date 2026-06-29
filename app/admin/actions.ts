@@ -193,3 +193,107 @@ export async function setSessionCompetitionWinner(formData: FormData) {
   revalidatePath("/admin/rodadas");
   revalidatePath("/ao-vivo");
 }
+
+export async function createTrophyFromSessionCompetition(formData: FormData) {
+  await requireAdmin();
+  const sessionCompetitionId = String(
+    formData.get("sessionCompetitionId") ?? "",
+  );
+  const trophyDate = String(formData.get("trophyDate") ?? "");
+  const weapon = String(formData.get("weapon") ?? "").trim();
+  const reserve = String(formData.get("reserve") ?? "").trim();
+  const details = String(formData.get("details") ?? "").trim();
+
+  if (!sessionCompetitionId || !trophyDate || !weapon || !reserve || !details) {
+    throw new Error("Informe data, arma, reserva e detalhes do trofeu.");
+  }
+
+  // biome-ignore lint/suspicious/noExplicitAny: temporary until Supabase generated types include live tables.
+  const supabase = (await createClient()) as any;
+
+  const { data: sessionCompetition, error: sessionCompetitionError } =
+    await supabase
+      .from("session_competitions")
+      .select("id, session_id, competition_id, winner_player_id")
+      .eq("id", sessionCompetitionId)
+      .single();
+
+  if (sessionCompetitionError) {
+    throw new Error(sessionCompetitionError.message);
+  }
+
+  if (!sessionCompetition.winner_player_id) {
+    throw new Error("Defina o vencedor antes de criar o trofeu.");
+  }
+
+  const { data: existingTrophy, error: existingTrophyError } = await supabase
+    .from("trophies")
+    .select("id")
+    .eq("session_competition_id", sessionCompetitionId)
+    .maybeSingle();
+
+  if (existingTrophyError) {
+    throw new Error(existingTrophyError.message);
+  }
+
+  if (existingTrophy) {
+    throw new Error("Esta competicao da rodada ja gerou um trofeu.");
+  }
+
+  const { data: competition, error: competitionError } = await supabase
+    .from("competitions")
+    .select("legacy_id, slug")
+    .eq("id", sessionCompetition.competition_id)
+    .single();
+
+  if (competitionError) {
+    throw new Error(competitionError.message);
+  }
+
+  const { data: player, error: playerError } = await supabase
+    .from("players")
+    .select("legacy_id, slug")
+    .eq("id", sessionCompetition.winner_player_id)
+    .single();
+
+  if (playerError) {
+    throw new Error(playerError.message);
+  }
+
+  const { data: latestTrophy, error: latestTrophyError } = await supabase
+    .from("trophies")
+    .select("edition")
+    .eq("competition_id", sessionCompetition.competition_id)
+    .order("edition", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  if (latestTrophyError) {
+    throw new Error(latestTrophyError.message);
+  }
+
+  const edition = (latestTrophy?.edition ?? 0) + 1;
+  const competitionSlug = competition.legacy_id ?? competition.slug;
+  const playerSlug = player.legacy_id ?? player.slug;
+
+  const { error: trophyError } = await supabase.from("trophies").insert({
+    legacy_id: `${competitionSlug}-${edition}-${playerSlug}`,
+    competition_id: sessionCompetition.competition_id,
+    winner_player_id: sessionCompetition.winner_player_id,
+    gameplay_session_id: sessionCompetition.session_id,
+    session_competition_id: sessionCompetitionId,
+    edition,
+    trophy_date: trophyDate,
+    weapon,
+    reserve,
+    details,
+  });
+
+  if (trophyError) {
+    throw new Error(trophyError.message);
+  }
+
+  revalidatePath("/admin/rodadas");
+  revalidatePath("/admin/trofeus");
+  revalidatePath("/exposicao");
+}
