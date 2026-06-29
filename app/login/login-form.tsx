@@ -12,38 +12,45 @@ export function LoginForm() {
     <form action={formAction} className="mt-8 grid gap-5">
       <label className="grid gap-2">
         <span className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-stone-500">
-          E-mail
+          Identificação
         </span>
         <input
           name="email"
           type="email"
           autoComplete="email"
           required
-          className="min-h-12 border border-white/10 bg-white/[0.04] px-4 text-sm text-stone-100 outline-none transition focus:border-amber-400"
+          placeholder="caçador@ocz"
+          className="login-input min-h-12 border border-amber-400/15 bg-black/25 px-4 text-sm text-stone-100 outline-none transition placeholder:text-stone-700 focus:border-amber-400"
         />
       </label>
 
       <label className="grid gap-2">
         <span className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-stone-500">
-          Senha
+          Chave de acesso
         </span>
         <input
           name="password"
           type="password"
           autoComplete="current-password"
           required
-          className="min-h-12 border border-white/10 bg-white/[0.04] px-4 text-sm text-stone-100 outline-none transition focus:border-amber-400"
+          placeholder="••••••••"
+          className="login-input min-h-12 border border-amber-400/15 bg-black/25 px-4 text-sm text-stone-100 outline-none transition placeholder:text-stone-700 focus:border-amber-400"
         />
       </label>
 
       {state.error && (
-        <p className="border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm text-red-200">
-          {state.error}
+        <p className="border border-red-400/25 bg-red-500/10 px-4 py-3 text-sm leading-6 text-red-100">
+          A guarda não reconheceu essa chave. Confira a identificação e tente
+          novamente.
         </p>
       )}
 
-      <button type="submit" className="button-primary" disabled={isPending}>
-        {isPending ? "Entrando..." : "Entrar"}
+      <button
+        type="submit"
+        className="button-primary login-submit"
+        disabled={isPending}
+      >
+        {isPending ? "Abrindo o portão..." : "Entrar no acampamento"}
       </button>
     </form>
   );

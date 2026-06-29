@@ -39,12 +39,15 @@ export function LiveCountdown({
 
   if (status !== "running" || !startsAtMs || !endsAtMs) {
     return (
-      <div className="border border-white/10 bg-white/[0.03] p-6">
+      <div className="camp-timer p-6">
         <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-stone-500">
-          Timer
+          Relógio da cabana
         </p>
-        <p className="mt-3 font-display text-4xl font-bold text-stone-100">
+        <p className="mt-3 font-display text-4xl font-bold leading-tight text-stone-100">
           Aguardando início
+        </p>
+        <p className="mt-3 text-sm leading-6 text-stone-500">
+          O timer acende quando a rodada começa.
         </p>
       </div>
     );
@@ -52,14 +55,20 @@ export function LiveCountdown({
 
   const remaining = endsAtMs - now;
   const elapsed = now >= endsAtMs;
+  const isUrgent = remaining <= 5 * 60_000 && !elapsed;
 
   return (
-    <div className="border border-amber-400/20 bg-amber-400/[0.06] p-6">
+    <div className="camp-timer p-6" data-urgent={isUrgent || elapsed}>
       <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-amber-400">
-        {elapsed ? "Tempo encerrado" : "Tempo restante"}
+        {elapsed ? "Fogueira apagada" : "Tempo restante"}
       </p>
-      <p className="mt-3 font-display text-6xl font-bold text-stone-100">
+      <p className="mt-3 font-display text-6xl font-bold leading-none text-stone-100">
         {formatRemaining(remaining)}
+      </p>
+      <p className="mt-3 text-sm leading-6 text-stone-500">
+        {elapsed
+          ? "A rodada terminou. O admin pode registrar os vencedores."
+          : "Todos os caçadores veem esta mesma contagem."}
       </p>
     </div>
   );

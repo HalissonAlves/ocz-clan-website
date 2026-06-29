@@ -193,7 +193,7 @@ button {
 }
 .feature-card {
   min-height: 13rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   background: linear-gradient(
     145deg,
     rgba(255, 255, 255, 0.04),
@@ -357,6 +357,273 @@ button {
     rgba(255, 255, 255, 0.12),
     transparent 30%
   );
+}
+
+.live-camp-screen::after {
+  position: absolute;
+  inset: 0;
+  z-index: -9;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(242, 181, 68, 0.08),
+      transparent 22rem
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.014) 0 1px,
+      transparent 1px 5rem
+    );
+  content: "";
+  opacity: 0.55;
+  pointer-events: none;
+}
+.camp-notice-board,
+.camp-side-panel,
+.camp-timer,
+.camp-competition-note {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(242, 181, 68, 0.16);
+  background:
+    radial-gradient(
+      circle at 12% 8%,
+      rgba(242, 181, 68, 0.08),
+      transparent 16rem
+    ), linear-gradient(145deg, rgba(24, 17, 10, 0.88), rgba(8, 10, 8, 0.76));
+  box-shadow:
+    0 22px 50px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+}
+.camp-notice-board::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 0 1px,
+      transparent 1px 3.6rem
+    ),
+    linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.018) 0 1px,
+      transparent 1px 3.2rem
+    );
+  content: "";
+  opacity: 0.28;
+  pointer-events: none;
+}
+.camp-notice-board > *,
+.camp-side-panel > *,
+.camp-timer > *,
+.camp-competition-note > * {
+  position: relative;
+  z-index: 1;
+}
+.camp-competition-note {
+  border-color: rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(145deg, rgba(34, 28, 20, 0.88), rgba(12, 13, 10, 0.84)),
+    radial-gradient(
+      circle at 88% 0%,
+      rgba(242, 181, 68, 0.1),
+      transparent 18rem
+    );
+}
+.camp-competition-note::before,
+.camp-entry-field::before {
+  position: absolute;
+  top: 0.85rem;
+  left: 50%;
+  width: 2.8rem;
+  height: 0.55rem;
+  background: rgba(242, 181, 68, 0.55);
+  box-shadow: 0 0 1.2rem rgba(242, 181, 68, 0.22);
+  content: "";
+  transform: translateX(-50%) rotate(-1deg);
+}
+.camp-competition-note[data-category="diamond"] {
+  border-color: rgba(125, 211, 252, 0.24);
+  background:
+    radial-gradient(
+      circle at 82% 12%,
+      rgba(125, 211, 252, 0.13),
+      transparent 16rem
+    ), linear-gradient(145deg, rgba(14, 25, 29, 0.9), rgba(8, 12, 13, 0.84));
+}
+.camp-competition-note[data-category="diamond"]::before {
+  background: rgba(125, 211, 252, 0.6);
+  box-shadow: 0 0 1.2rem rgba(125, 211, 252, 0.24);
+}
+.camp-winner-stamp {
+  border: 1px solid rgba(242, 181, 68, 0.3);
+  background: rgba(242, 181, 68, 0.09);
+  box-shadow: inset 0 0 1.5rem rgba(242, 181, 68, 0.04);
+}
+.camp-timer {
+  border-color: rgba(242, 181, 68, 0.24);
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(242, 181, 68, 0.18),
+      transparent 13rem
+    ), linear-gradient(145deg, rgba(22, 15, 8, 0.9), rgba(7, 9, 8, 0.82));
+}
+.camp-timer::before {
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 180deg,
+    transparent,
+    rgba(242, 181, 68, 0.1),
+    transparent 28%
+  );
+  animation: camp-timer-light 9s linear infinite;
+  content: "";
+  pointer-events: none;
+}
+.camp-timer[data-urgent="true"] {
+  border-color: rgba(248, 113, 113, 0.35);
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(248, 113, 113, 0.18),
+      transparent 13rem
+    ), linear-gradient(145deg, rgba(28, 10, 8, 0.92), rgba(9, 7, 7, 0.84));
+}
+.camp-entry-field {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(0, 0, 0, 0.18);
+}
+.camp-entry-field[data-editable="true"] {
+  border-color: rgba(242, 181, 68, 0.18);
+  background: rgba(242, 181, 68, 0.035);
+}
+.camp-entry-field::before {
+  top: 0.7rem;
+  width: 2rem;
+  height: 0.42rem;
+  opacity: 0.35;
+}
+@keyframes camp-timer-light {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.login-camp::after {
+  position: absolute;
+  inset: 0;
+  z-index: -9;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0 46%,
+      rgba(242, 181, 68, 0.045) 46.2% 46.45%,
+      transparent 46.7%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.018) 0 1px,
+      transparent 1px 6rem
+    );
+  content: "";
+  opacity: 0.34;
+  pointer-events: none;
+}
+.login-lantern {
+  animation: login-lantern 4.8s ease-in-out infinite;
+}
+.login-register {
+  animation: login-register-reveal 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.login-register::before {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 12% 8%,
+      rgba(242, 181, 68, 0.08),
+      transparent 16rem
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.065),
+      transparent 34%,
+      rgba(0, 0, 0, 0.06)
+    );
+  content: "";
+  pointer-events: none;
+}
+.login-register::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(145deg, rgba(242, 181, 68, 0.16), transparent 34%),
+    linear-gradient(320deg, rgba(255, 255, 255, 0.08), transparent 38%)
+    border-box;
+  content: "";
+  mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.login-register > * {
+  position: relative;
+  z-index: 1;
+}
+.login-input {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+.login-input:focus {
+  background: rgba(0, 0, 0, 0.36);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 0 1px rgba(242, 181, 68, 0.1),
+    0 0 2rem rgba(242, 181, 68, 0.08);
+}
+.login-submit {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.login-submit::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 18%,
+    rgba(255, 255, 255, 0.34) 50%,
+    transparent 82%
+  );
+  content: "";
+  transform: translateX(-120%);
+}
+.login-submit:hover::after {
+  transform: translateX(120%);
+  transition: transform 700ms ease;
+}
+@keyframes login-register-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem) scale(0.97);
+  }
+}
+@keyframes login-lantern {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
 }
 
 .secret-crest {
