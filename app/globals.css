@@ -358,6 +358,209 @@ button {
     transparent 30%
   );
 }
+
+.secret-crest {
+  border: 0;
+  background: transparent;
+}
+.secret-crest::before {
+  position: absolute;
+  inset: 13%;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(242, 181, 68, 0.16), transparent 58%),
+    conic-gradient(
+      from 120deg,
+      transparent,
+      rgba(242, 181, 68, 0.08),
+      transparent 32%
+    );
+  filter: blur(1.2rem);
+  opacity: 0;
+  transition:
+    opacity 420ms ease,
+    transform 420ms ease;
+  content: "";
+}
+.secret-crest[data-awake="true"]::before {
+  opacity: 1;
+  transform: scale(1.06);
+  animation: secret-crest-orbit 5.5s linear infinite;
+}
+.secret-crest-sigil {
+  position: absolute;
+  inset: 3%;
+  border-radius: 999px;
+  background: linear-gradient(
+    115deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 62%
+  );
+  opacity: 0;
+  transform: translateX(-35%) rotate(8deg);
+  transition: opacity 260ms ease;
+}
+.secret-crest[data-awake="true"] .secret-crest-sigil {
+  animation: secret-shimmer 1.2s ease-out;
+}
+.secret-crest-ring {
+  transition:
+    border-color 320ms ease,
+    box-shadow 320ms ease,
+    transform 320ms ease;
+}
+.secret-crest-ring[data-awake="true"] {
+  border-color: rgba(242, 181, 68, 0.42);
+  box-shadow: 0 0 3rem rgba(242, 181, 68, 0.1);
+  transform: scale(1.03);
+}
+.secret-crest-ring-inner[data-awake="true"] {
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: scale(0.97);
+}
+.secret-spark {
+  position: absolute;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: #f2b544;
+  box-shadow: 0 0 1.1rem rgba(242, 181, 68, 0.85);
+  opacity: 0;
+  pointer-events: none;
+}
+.secret-crest[data-awake="true"] .secret-spark {
+  animation: secret-spark 900ms ease-out both;
+}
+.secret-spark-one {
+  left: 19%;
+  top: 31%;
+}
+.secret-spark-two {
+  right: 21%;
+  top: 22%;
+  animation-delay: 120ms;
+}
+.secret-spark-three {
+  bottom: 24%;
+  left: 48%;
+  animation-delay: 220ms;
+}
+.secret-passage-backdrop {
+  animation: fade-in 240ms ease-out both;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(242, 181, 68, 0.11),
+      transparent 28rem
+    ), rgba(2, 4, 3, 0.9);
+  backdrop-filter: blur(14px);
+}
+.secret-passage-panel {
+  animation: secret-panel-reveal 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.secret-passage-panel::before {
+  position: absolute;
+  inset: -35%;
+  background: conic-gradient(
+    from 180deg,
+    transparent,
+    rgba(242, 181, 68, 0.11),
+    transparent 24%,
+    rgba(255, 255, 255, 0.04),
+    transparent 52%
+  );
+  animation: secret-crest-orbit 12s linear infinite;
+  content: "";
+  pointer-events: none;
+}
+.secret-passage-panel::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  background: linear-gradient(145deg, rgba(242, 181, 68, 0.2), transparent 36%)
+    border-box;
+  content: "";
+  mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.secret-portal {
+  position: relative;
+  border-radius: 999px;
+}
+.secret-portal::before {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle, rgba(242, 181, 68, 0.22), transparent 56%),
+    conic-gradient(
+      from 0deg,
+      rgba(242, 181, 68, 0.04),
+      rgba(242, 181, 68, 0.62),
+      rgba(255, 255, 255, 0.2),
+      rgba(242, 181, 68, 0.04)
+    );
+  filter: blur(0.2rem);
+  animation: secret-portal-spin 4s linear infinite;
+  content: "";
+}
+.secret-portal::after {
+  position: absolute;
+  inset: 16%;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    inset 0 0 2rem rgba(255, 255, 255, 0.06),
+    0 0 3.8rem rgba(242, 181, 68, 0.22);
+  content: "";
+}
+@keyframes secret-crest-orbit {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@keyframes secret-shimmer {
+  0% {
+    opacity: 0;
+    transform: translateX(-38%) rotate(8deg);
+  }
+  45% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(38%) rotate(8deg);
+  }
+}
+@keyframes secret-spark {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0.75rem, 0) scale(0.4);
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -1.2rem, 0) scale(1);
+  }
+}
+@keyframes secret-panel-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(1.75rem) scale(0.94);
+  }
+}
+@keyframes secret-portal-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

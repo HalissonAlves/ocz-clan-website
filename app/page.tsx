@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon, CrosshairIcon, TrophyIcon } from "@/components/icons";
+import { SecretPassage } from "@/components/secret-passage";
 import { StatCard } from "@/components/stat-card";
 import { getCompetitionStatsWithSupabase } from "@/lib/public-competitions";
 import { getPlayerStatsWithSupabase } from "@/lib/public-players";
@@ -91,17 +92,7 @@ export default async function HomePage() {
       <section className="section-space relative overflow-hidden">
         <div className="topographic-pattern absolute inset-0 opacity-25" />
         <div className="page-container relative grid items-center gap-14 lg:grid-cols-[0.8fr_1.2fr]">
-          <div className="relative mx-auto aspect-square w-full max-w-md">
-            <div className="absolute inset-[10%] rounded-full border border-amber-400/20" />
-            <div className="absolute inset-[20%] rounded-full border border-amber-400/10" />
-            <Image
-              src="/assets/ocz_brasao.webp"
-              alt="Brasão oficial do clã OCZ"
-              fill
-              sizes="(max-width: 1024px) 80vw, 34vw"
-              className="object-contain drop-shadow-[0_20px_45px_rgba(0,0,0,0.65)]"
-            />
-          </div>
+          <SecretPassage />
           <div>
             <p className="eyebrow">O clã</p>
             <h2 className="section-title mt-4">
