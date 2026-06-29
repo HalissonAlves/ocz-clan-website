@@ -11,6 +11,7 @@ export type AdminTrophy = {
   competitions: {
     name: string;
     category: string;
+    trophy_image_url: string;
   } | null;
   players: {
     name: string;
@@ -32,7 +33,8 @@ export async function getAdminTrophies() {
       details,
       competitions (
         name,
-        category
+        category,
+        trophy_image_url
       ),
       players (
         name

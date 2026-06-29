@@ -1,15 +1,27 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useRef } from "react";
 import { type LoginFormState, signIn } from "@/app/login/actions";
 
 const initialState: LoginFormState = {};
 
 export function LoginForm() {
   const [state, formAction, isPending] = useActionState(signIn, initialState);
+  const gateSoundRef = useRef<HTMLAudioElement | null>(null);
+
+  function handleSubmit() {
+    gateSoundRef.current ??= new Audio("/assets/open-gate.mp3");
+    gateSoundRef.current.currentTime = 0;
+    gateSoundRef.current.volume = 1;
+    gateSoundRef.current.play().catch(() => {});
+  }
 
   return (
-    <form action={formAction} className="mt-8 grid gap-5">
+    <form
+      action={formAction}
+      className="mt-8 grid gap-5"
+      onSubmit={handleSubmit}
+    >
       <label className="grid gap-2">
         <span className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-stone-500">
           Identificação

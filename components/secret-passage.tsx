@@ -8,6 +8,7 @@ import { CloseIcon } from "@/components/icons";
 const SECRET_CODE = "ocz";
 const REQUIRED_TAPS = 5;
 const TAP_WINDOW_MS = 3600;
+const START_SOUNDTRACK_EVENT = "ocz:start-admin-soundtrack";
 
 export function SecretPassage() {
   const [typedCode, setTypedCode] = useState("");
@@ -16,12 +17,18 @@ export function SecretPassage() {
   const [isAwake, setIsAwake] = useState(false);
   const tapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const passageSoundRef = useRef<HTMLAudioElement | null>(null);
 
   const openPassage = useCallback(() => {
     setIsOpen(true);
     setIsAwake(true);
     setTapCount(0);
     setTypedCode("");
+
+    passageSoundRef.current ??= new Audio("/assets/open-camp-passage.mp3");
+    passageSoundRef.current.currentTime = 0;
+    passageSoundRef.current.volume = 0.72;
+    passageSoundRef.current.play().catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -80,6 +87,10 @@ export function SecretPassage() {
       previouslyFocused?.focus();
     };
   }, [isOpen]);
+
+  function handleEnterCamp() {
+    window.dispatchEvent(new Event(START_SOUNDTRACK_EVENT));
+  }
 
   function handleCrestPress() {
     setIsAwake(true);
@@ -185,7 +196,11 @@ export function SecretPassage() {
             </p>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link href="/login" className="button-primary">
+              <Link
+                href="/login"
+                className="button-primary"
+                onClick={handleEnterCamp}
+              >
                 Entrar no acampamento
               </Link>
               <button

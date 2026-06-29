@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CampSoundtrackPlayer } from "@/components/camp-soundtrack-player";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import "./globals.css";
@@ -53,6 +54,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <CampSoundtrackPlayer />
         </div>
       </body>
     </html>
