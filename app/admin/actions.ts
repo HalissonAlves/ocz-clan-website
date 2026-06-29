@@ -27,8 +27,10 @@ export async function createGameplaySession(formData: FormData) {
   }
 
   const catalog = await getCompetitionCatalog();
-  const selectedCompetitions = catalog.filter((competition) =>
-    competitionIds.includes(competition.id),
+  const selectedCompetitions = catalog.filter(
+    (competition) =>
+      competition.category === "standard" &&
+      competitionIds.includes(competition.id),
   );
 
   // biome-ignore lint/suspicious/noExplicitAny: temporary until Supabase generated types include live tables.
