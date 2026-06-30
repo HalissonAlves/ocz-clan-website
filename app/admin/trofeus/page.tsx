@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { createDiamondTrophy } from "@/app/admin/trofeus/actions";
 import { signOut } from "@/app/login/actions";
-import { getAdminTrophies } from "@/lib/admin-trophies";
+import {
+  getAdminTrophies,
+  getDiamondTrophyCompetitionOptions,
+  getTrophyPlayerOptions,
+} from "@/lib/admin-trophies";
 import { requireAdmin } from "@/lib/auth";
 import { formatDate, toRoman } from "@/lib/data";
 
@@ -13,7 +18,12 @@ export const metadata: Metadata = {
 
 export default async function AdminTrophiesPage() {
   await requireAdmin();
-  const trophies = await getAdminTrophies();
+  const [trophies, diamondCompetitions, players] = await Promise.all([
+    getAdminTrophies(),
+    getDiamondTrophyCompetitionOptions(),
+    getTrophyPlayerOptions(),
+  ]);
+  const today = new Date().toISOString().slice(0, 10);
   const standardCount = trophies.filter(
     (trophy) => trophy.competitions?.category === "standard",
   ).length;
@@ -176,24 +186,144 @@ export default async function AdminTrophiesPage() {
             </div>
           </div>
 
-          <aside className="trophy-vault-side p-6">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-amber-400">
-              Como o acervo cresce
-            </p>
-            <div className="mt-5 grid gap-3 text-sm leading-6 text-stone-400">
-              <p className="border border-white/8 bg-black/18 p-3">
-                Rodadas oficiais geram troféus quando o admin registra o
-                vencedor.
+          <aside className="grid gap-5">
+            <div className="trophy-vault-side border-sky-300/18 p-6">
+              <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-sky-200">
+                Registro avulso
               </p>
-              <p className="border border-sky-300/14 bg-sky-300/[0.035] p-3">
-                Troféus diamante serão registrados como conquistas avulsas.
+              <h2 className="mt-3 font-display text-3xl font-bold text-stone-100">
+                Diamante abatido
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-stone-400">
+                Use esta ficha quando um caçador conquistar um diamante fora de
+                uma rodada oficial.
               </p>
-              <p className="border border-white/8 bg-black/18 p-3">
-                O acervo preserva histórico, edição, território, arma e relato.
+
+              <form action={createDiamondTrophy} className="mt-6 grid gap-4">
+                <label className="grid gap-2">
+                  <span className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-stone-500">
+                    Troféu diamante
+                  </span>
+                  <select
+                    name="competitionId"
+                    required
+                    className="login-input min-h-12 border border-sky-300/15 bg-black/25 px-3 text-sm text-stone-100 outline-none transition focus:border-sky-300"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Selecione o animal
+                    </option>
+                    {diamondCompetitions.map((competition) => (
+                      <option key={competition.id} value={competition.id}>
+                        {competition.name}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+
+                <label className="grid gap-2">
+                  <span className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-stone-500">
+                    Caçador
+                  </span>
+                  <select
+                    name="winnerPlayerId"
+                    required
+                    className="login-input min-h-12 border border-sky-300/15 bg-black/25 px-3 text-sm text-stone-100 outline-none transition focus:border-sky-300"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Quem levou o diamante?
+                    </option>
+                    {players.map((player) => (
+                      <option key={player.id} value={player.id}>
+                        {player.name}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+
+                <label className="grid gap-2">
+                  <span className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-stone-500">
+                    Data
+                  </span>
+                  <input
+                    name="trophyDate"
+                    type="date"
+                    required
+                    defaultValue={today}
+                    className="login-input min-h-12 border border-sky-300/15 bg-black/25 px-3 text-sm text-stone-100 outline-none transition focus:border-sky-300"
+                  />
+                </label>
+
+                <label className="grid gap-2">
+                  <span className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-stone-500">
+                    Reserva
+                  </span>
+                  <input
+                    name="reserve"
+                    required
+                    placeholder="Ex.: Parque Nacional Hirschfelden"
+                    className="login-input min-h-12 border border-sky-300/15 bg-black/25 px-3 text-sm text-stone-100 outline-none transition placeholder:text-stone-700 focus:border-sky-300"
+                  />
+                </label>
+
+                <label className="grid gap-2">
+                  <span className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-stone-500">
+                    Arma
+                  </span>
+                  <input
+                    name="weapon"
+                    required
+                    placeholder="Ex.: .300 Canning Magnum"
+                    className="login-input min-h-12 border border-sky-300/15 bg-black/25 px-3 text-sm text-stone-100 outline-none transition placeholder:text-stone-700 focus:border-sky-300"
+                  />
+                </label>
+
+                <label className="grid gap-2">
+                  <span className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-stone-500">
+                    Relato
+                  </span>
+                  <textarea
+                    name="details"
+                    required
+                    rows={4}
+                    placeholder="Pontuação, distância, contexto da caçada..."
+                    className="login-input resize-none border border-sky-300/15 bg-black/25 px-3 py-3 text-sm leading-6 text-stone-100 outline-none transition placeholder:text-stone-700 focus:border-sky-300"
+                  />
+                </label>
+
+                <button
+                  type="submit"
+                  className="button-primary bg-sky-300 text-slate-950 hover:bg-sky-200"
+                  disabled={
+                    diamondCompetitions.length === 0 || players.length === 0
+                  }
+                >
+                  Guardar diamante
+                </button>
+              </form>
+            </div>
+
+            <div className="trophy-vault-side p-6">
+              <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-amber-400">
+                Como o acervo cresce
               </p>
-              <p className="border border-white/8 bg-black/18 p-3">
-                Evite apagar registros: eles contam a história do clã.
-              </p>
+              <div className="mt-5 grid gap-3 text-sm leading-6 text-stone-400">
+                <p className="border border-white/8 bg-black/18 p-3">
+                  Rodadas oficiais geram troféus quando o admin registra o
+                  vencedor.
+                </p>
+                <p className="border border-sky-300/14 bg-sky-300/[0.035] p-3">
+                  Troféus diamante são registrados aqui como conquistas avulsas.
+                </p>
+                <p className="border border-white/8 bg-black/18 p-3">
+                  O acervo preserva histórico, edição, território, arma e
+                  relato.
+                </p>
+                <p className="border border-white/8 bg-black/18 p-3">
+                  Evite apagar registros: eles contam a história do clã.
+                </p>
+              </div>
             </div>
           </aside>
         </div>
