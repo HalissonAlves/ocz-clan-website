@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
 
 const START_SOUNDTRACK_EVENT = "ocz:start-admin-soundtrack";
@@ -16,6 +17,9 @@ export function CampSoundtrackPlayer() {
     pathname === "/login" ||
     pathname === "/ao-vivo" ||
     pathname.startsWith("/admin");
+  const radioStyle = {
+    "--radio-volume": `${-128 + volume * 256}deg`,
+  } as CSSProperties;
 
   useEffect(() => {
     if (!audioRef.current) {
@@ -92,30 +96,53 @@ export function CampSoundtrackPlayer() {
         />
       </audio>
       {(isVisible || isCampRoute) && (
-        <div className="fixed bottom-4 right-4 z-[140] flex w-[min(100%-2rem,18rem)] items-center gap-3 border border-amber-400/20 bg-[#070a08]/86 p-3 text-stone-100 shadow-2xl backdrop-blur-xl">
-          <button
-            type="button"
-            onClick={togglePlayback}
-            className="grid size-10 shrink-0 place-items-center border border-amber-400/25 bg-amber-400/[0.08] text-xs font-black uppercase tracking-[0.12em] text-amber-300 transition hover:border-amber-400 hover:bg-amber-400 hover:text-stone-950"
-            aria-label={isPlaying ? "Pausar trilha" : "Tocar trilha"}
-          >
-            {isPlaying ? "II" : "▶"}
-          </button>
-          <label className="min-w-0 flex-1">
-            <span className="block text-[0.56rem] font-bold uppercase tracking-[0.16em] text-stone-500">
-              Trilha da cabana
-            </span>
-            <input
-              type="range"
-              min={0}
-              max={1}
-              step={0.01}
-              value={volume}
-              onChange={(event) => setVolume(Number(event.target.value))}
-              className="mt-2 w-full accent-amber-400"
-              aria-label="Volume da trilha sonora"
-            />
-          </label>
+        <div className="camp-radio" data-playing={isPlaying} style={radioStyle}>
+          <span className="camp-radio-antenna" aria-hidden="true" />
+          <div className="camp-radio-face">
+            <div className="camp-radio-speaker" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
+
+            <div className="camp-radio-body">
+              <div className="camp-radio-display">
+                <span>{isPlaying ? "Transmitindo" : "Em espera"}</span>
+                <strong>OCZ-FM</strong>
+                <small>Cabana norte</small>
+              </div>
+
+              <div className="camp-radio-controls">
+                <button
+                  type="button"
+                  onClick={togglePlayback}
+                  className="camp-radio-button"
+                  aria-label={isPlaying ? "Pausar trilha" : "Tocar trilha"}
+                >
+                  {isPlaying ? "II" : "▶"}
+                </button>
+
+                <label className="camp-radio-volume">
+                  <span>Volume</span>
+                  <input
+                    type="range"
+                    min={0}
+                    max={1}
+                    step={0.01}
+                    value={volume}
+                    onChange={(event) => setVolume(Number(event.target.value))}
+                    aria-label="Volume da trilha sonora"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div className="camp-radio-knob" aria-hidden="true">
+              <span />
+            </div>
+          </div>
         </div>
       )}
     </>
