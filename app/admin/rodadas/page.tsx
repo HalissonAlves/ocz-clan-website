@@ -9,6 +9,9 @@ import {
   startGameplaySession,
 } from "@/app/admin/actions";
 import { signOut } from "@/app/login/actions";
+import { CompetitionSelectionSubmitButton } from "@/components/competition-selection-submit-button";
+import { RoundScrollRestorer } from "@/components/round-scroll-restorer";
+import { SubmitButton } from "@/components/submit-button";
 import { requireAdmin } from "@/lib/auth";
 import { getLatestOpenSession } from "@/lib/live-data";
 import { getCompetitionCatalog } from "@/lib/public-competitions";
@@ -31,6 +34,7 @@ export default async function AdminRoundsPage() {
 
   return (
     <section className="round-map-screen relative isolate min-h-[calc(100svh-5rem)] overflow-hidden py-10 sm:py-14">
+      <RoundScrollRestorer />
       <Image
         src="/assets/login-camp.webp"
         alt=""
@@ -61,9 +65,12 @@ export default async function AdminRoundsPage() {
               Posto de comando
             </Link>
             <form action={signOut}>
-              <button type="submit" className="button-secondary bg-black/25">
+              <SubmitButton
+                className="button-secondary bg-black/25"
+                pendingLabel="Saindo..."
+              >
                 Sair do acampamento
-              </button>
+              </SubmitButton>
             </form>
           </div>
         </div>
@@ -91,19 +98,22 @@ export default async function AdminRoundsPage() {
                       name="durationMinutes"
                       value={session.duration_minutes}
                     />
-                    <button type="submit" className="button-primary">
+                    <SubmitButton
+                      className="button-primary"
+                      pendingLabel="Acendendo..."
+                    >
                       Acender fogueira
-                    </button>
+                    </SubmitButton>
                   </form>
                 )}
                 <form action={finishGameplaySession}>
                   <input type="hidden" name="sessionId" value={session.id} />
-                  <button
-                    type="submit"
+                  <SubmitButton
                     className="button-secondary bg-black/20"
+                    pendingLabel="Encerrando..."
                   >
                     Encerrar vigília
-                  </button>
+                  </SubmitButton>
                 </form>
               </div>
             </div>
@@ -161,9 +171,12 @@ export default async function AdminRoundsPage() {
                             </option>
                           ))}
                         </select>
-                        <button type="submit" className="button-primary">
+                        <SubmitButton
+                          className="button-primary"
+                          pendingLabel="Registrando..."
+                        >
                           Registrar vencedor
-                        </button>
+                        </SubmitButton>
                       </div>
                     </form>
 
@@ -208,12 +221,12 @@ export default async function AdminRoundsPage() {
                           placeholder="Relato da conquista"
                           className="resize-none border border-white/10 bg-black/25 px-3 py-2 text-sm leading-6 text-stone-100 outline-none transition placeholder:text-stone-600 focus:border-amber-400"
                         />
-                        <button
-                          type="submit"
+                        <SubmitButton
                           className="button-secondary justify-self-start bg-black/20"
+                          pendingLabel="Enviando..."
                         >
                           Enviar para o acervo
-                        </button>
+                        </SubmitButton>
                       </form>
                     )}
                   </div>
@@ -308,12 +321,12 @@ export default async function AdminRoundsPage() {
                 </div>
               </div>
 
-              <button
-                type="submit"
+              <CompetitionSelectionSubmitButton
                 className="button-primary justify-self-start"
+                pendingLabel="Preparando..."
               >
                 Preparar quadro
-              </button>
+              </CompetitionSelectionSubmitButton>
             </fieldset>
           </form>
 

@@ -4,6 +4,7 @@ import { signOut } from "@/app/login/actions";
 import { LiveCountdown } from "@/components/live-countdown";
 import { LiveEntryField } from "@/components/live-entry-field";
 import { LiveSessionRefresh } from "@/components/live-session-refresh";
+import { SubmitButton } from "@/components/submit-button";
 import type { LiveSession } from "@/lib/live-session";
 
 type LiveSessionBoardProps = {
@@ -47,9 +48,12 @@ export function LiveSessionBoard({ session, profile }: LiveSessionBoardProps) {
           </div>
 
           <form action={signOut}>
-            <button type="submit" className="button-secondary bg-black/25">
+            <SubmitButton
+              className="button-secondary bg-black/25"
+              pendingLabel="Saindo..."
+            >
               Sair do acampamento
-            </button>
+            </SubmitButton>
           </form>
         </div>
 

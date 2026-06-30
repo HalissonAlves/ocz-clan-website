@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { updateCompetition } from "@/app/admin/competicoes/actions";
 import { signOut } from "@/app/login/actions";
+import { SubmitButton } from "@/components/submit-button";
 import { getAdminCompetition } from "@/lib/admin-competitions";
 import { requireAdmin } from "@/lib/auth";
 
@@ -56,9 +57,12 @@ export default async function AdminCompetitionEditPage({ params }: PageProps) {
               Voltar ao fichário
             </Link>
             <form action={signOut}>
-              <button type="submit" className="button-secondary bg-black/25">
+              <SubmitButton
+                className="button-secondary bg-black/25"
+                pendingLabel="Saindo..."
+              >
                 Sair do acampamento
-              </button>
+              </SubmitButton>
             </form>
           </div>
         </div>
@@ -189,12 +193,12 @@ export default async function AdminCompetitionEditPage({ params }: PageProps) {
               Ficha ativa
             </label>
 
-            <button
-              type="submit"
+            <SubmitButton
               className="button-primary mt-6 justify-self-start"
+              pendingLabel="Salvando..."
             >
               Salvar ficha
-            </button>
+            </SubmitButton>
           </form>
 
           <aside className="challenge-archive-side p-6">

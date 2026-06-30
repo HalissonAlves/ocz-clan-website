@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { createDiamondTrophy } from "@/app/admin/trofeus/actions";
 import { signOut } from "@/app/login/actions";
+import { SubmitButton } from "@/components/submit-button";
 import {
   getAdminTrophies,
   getDiamondTrophyCompetitionOptions,
@@ -64,9 +65,12 @@ export default async function AdminTrophiesPage() {
               Posto de comando
             </Link>
             <form action={signOut}>
-              <button type="submit" className="button-secondary bg-black/25">
+              <SubmitButton
+                className="button-secondary bg-black/25"
+                pendingLabel="Saindo..."
+              >
                 Sair do acampamento
-              </button>
+              </SubmitButton>
             </form>
           </div>
         </div>
@@ -292,15 +296,15 @@ export default async function AdminTrophiesPage() {
                   />
                 </label>
 
-                <button
-                  type="submit"
+                <SubmitButton
                   className="button-primary bg-sky-300 text-slate-950 hover:bg-sky-200"
                   disabled={
                     diamondCompetitions.length === 0 || players.length === 0
                   }
+                  pendingLabel="Guardando..."
                 >
                   Guardar diamante
-                </button>
+                </SubmitButton>
               </form>
             </div>
 

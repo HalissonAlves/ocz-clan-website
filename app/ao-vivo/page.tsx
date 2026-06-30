@@ -4,6 +4,7 @@ import Link from "next/link";
 import { signOut } from "@/app/login/actions";
 import { LiveSessionBoard } from "@/components/live-session-board";
 import { LiveSessionRefresh } from "@/components/live-session-refresh";
+import { SubmitButton } from "@/components/submit-button";
 import { getCurrentProfile, requireUser } from "@/lib/auth";
 import { getLatestOpenSession } from "@/lib/live-data";
 
@@ -55,9 +56,12 @@ export default async function LivePage() {
           </div>
 
           <form action={signOut}>
-            <button type="submit" className="button-secondary bg-black/25">
+            <SubmitButton
+              className="button-secondary bg-black/25"
+              pendingLabel="Saindo..."
+            >
               Sair do acampamento
-            </button>
+            </SubmitButton>
           </form>
         </div>
 

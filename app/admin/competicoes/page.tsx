@@ -6,6 +6,7 @@ import {
   toggleCompetitionActive,
 } from "@/app/admin/competicoes/actions";
 import { signOut } from "@/app/login/actions";
+import { SubmitButton } from "@/components/submit-button";
 import { getAdminCompetitions } from "@/lib/admin-competitions";
 import { requireAdmin } from "@/lib/auth";
 
@@ -50,9 +51,12 @@ export default async function AdminCompetitionsPage() {
               Posto de comando
             </Link>
             <form action={signOut}>
-              <button type="submit" className="button-secondary bg-black/25">
+              <SubmitButton
+                className="button-secondary bg-black/25"
+                pendingLabel="Saindo..."
+              >
                 Sair do acampamento
-              </button>
+              </SubmitButton>
             </form>
           </div>
         </div>
@@ -82,12 +86,12 @@ export default async function AdminCompetitionsPage() {
 
             <CompetitionFields />
 
-            <button
-              type="submit"
+            <SubmitButton
               className="button-primary mt-6 justify-self-start"
+              pendingLabel="Guardando..."
             >
               Guardar no fichário
-            </button>
+            </SubmitButton>
           </form>
 
           <aside className="challenge-archive-side p-6">
@@ -188,14 +192,18 @@ export default async function AdminCompetitionsPage() {
                           name="active"
                           value={competition.active ? "false" : "true"}
                         />
-                        <button
-                          type="submit"
+                        <SubmitButton
                           className="button-secondary bg-black/20"
+                          pendingLabel={
+                            competition.active
+                              ? "Arquivando..."
+                              : "Reabrindo..."
+                          }
                         >
                           {competition.active
                             ? "Arquivar ficha"
                             : "Reabrir ficha"}
-                        </button>
+                        </SubmitButton>
                       </form>
                     </div>
                   </div>

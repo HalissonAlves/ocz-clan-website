@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { signOut } from "@/app/login/actions";
+import { SubmitButton } from "@/components/submit-button";
 import { requireAdmin } from "@/lib/auth";
 
 export const metadata: Metadata = {
@@ -74,9 +75,12 @@ export default async function AdminPage() {
           </div>
 
           <form action={signOut}>
-            <button type="submit" className="button-secondary bg-black/25">
+            <SubmitButton
+              className="button-secondary bg-black/25"
+              pendingLabel="Saindo..."
+            >
               Sair do acampamento
-            </button>
+            </SubmitButton>
           </form>
         </div>
 
