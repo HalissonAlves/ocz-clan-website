@@ -57,9 +57,9 @@ export function LiveSessionBoard({ session, profile }: LiveSessionBoardProps) {
           </form>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_22rem]">
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start">
           <div className="grid gap-5">
-            <div className="camp-notice-board p-5 sm:p-7">
+            <div className="camp-notice-board camp-watch-strip p-4 sm:p-5">
               <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-end">
                 <div>
                   <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-amber-400">
@@ -91,20 +91,20 @@ export function LiveSessionBoard({ session, profile }: LiveSessionBoardProps) {
               return (
                 <article
                   key={sessionCompetition.id}
-                  className="camp-competition-note p-5 sm:p-6"
+                  className="camp-competition-note camp-competition-compact p-4 sm:p-5"
                   data-category={sessionCompetition.competitions?.category}
                 >
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                    <div className="flex gap-4">
+                    <div className="flex min-w-0 gap-4">
                       {sessionCompetition.competitions?.trophy_image_url && (
-                        <div className="relative hidden size-20 shrink-0 overflow-hidden border border-white/10 bg-black/25 sm:block">
+                        <div className="relative hidden size-16 shrink-0 overflow-hidden border border-white/10 bg-black/25 sm:block">
                           <Image
                             src={
                               sessionCompetition.competitions.trophy_image_url
                             }
                             alt=""
                             fill
-                            sizes="80px"
+                            sizes="64px"
                             className="object-contain p-3"
                           />
                         </div>
@@ -113,7 +113,7 @@ export function LiveSessionBoard({ session, profile }: LiveSessionBoardProps) {
                         <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-stone-500">
                           Ficha de campo {String(index + 1).padStart(2, "0")}
                         </p>
-                        <h3 className="mt-2 font-display text-3xl font-bold text-stone-100">
+                        <h3 className="mt-2 font-display text-2xl font-bold leading-tight text-stone-100 sm:text-3xl">
                           {sessionCompetition.competitions?.name}
                         </h3>
                       </div>
@@ -130,11 +130,11 @@ export function LiveSessionBoard({ session, profile }: LiveSessionBoardProps) {
                     )}
                   </div>
 
-                  <p className="mt-4 border-y border-white/8 py-4 text-sm leading-7 text-stone-400">
+                  <p className="mt-4 border-y border-white/8 py-3 text-sm leading-6 text-stone-400">
                     {sessionCompetition.competitions?.objective}
                   </p>
 
-                  <div className="mt-5 grid gap-4">
+                  <div className="mt-4 grid gap-3 xl:grid-cols-3">
                     {sessionCompetition.session_entries.map((entry) => (
                       <LiveEntryField
                         key={entry.id}
@@ -152,7 +152,7 @@ export function LiveSessionBoard({ session, profile }: LiveSessionBoardProps) {
             })}
           </div>
 
-          <aside className="grid content-start gap-5">
+          <aside className="grid content-start gap-5 lg:sticky lg:top-24">
             <LiveCountdown
               startsAt={session.starts_at}
               endsAt={session.ends_at}
